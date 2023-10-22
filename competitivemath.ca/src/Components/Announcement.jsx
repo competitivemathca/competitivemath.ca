@@ -12,7 +12,7 @@ export default function Announcement({ imgSrc, username, date, pfp, title, text 
             <div className="pl-6 shrink">
                 <h1 className="text-3xl font-bold">{title}</h1>
                 <div className="pt-6">
-                    <p className="text-base">{text}</p>
+                    <p>{text}</p>
                 </div>
             </div>
         </div>
