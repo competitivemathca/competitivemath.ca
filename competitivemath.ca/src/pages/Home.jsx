@@ -5,7 +5,7 @@ export default function Home() {
     return (
         <div className="p-6">
            {/* Hey */}
-            <div className="box w-9/12 h-[700px] px-8"> 
+            <div className="box w-9/12 px-8"> 
                 <ContentPanel title="Important Announcements">
                     <Announcement 
                         imgSrc="https://images.pexels.com/photos/2792157/pexels-photo-2792157.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" 
