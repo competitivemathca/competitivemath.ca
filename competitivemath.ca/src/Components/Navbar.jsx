@@ -5,7 +5,7 @@ export default function Navbar() {
         <>
         <nav className="bg-blue-800 text-white flex justify-between items-stretch gap-8 px-4 py-1">
             <div className="justify-between inline-flex">
-                <a href="/" className="inline-flex ">
+                <a href="/" className="inline-flex">
                     <img src="../images/CM logo.svg" className="w-16 l-16"/>
                     <h1 className="text-2xl font-bold mt-4 ml-3">CompetitiveMath.ca</h1>
                 </a>
