@@ -1,6 +1,21 @@
 import { useEffect, useState } from 'react';
 
 const shortMonths = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const shortDateFormat = new Intl.DateTimeFormat("en-us", {
+    month: "short",
+    day: "numeric",
+    timeZone: "UTC",
+});
+
+const dateFormat = new Intl.DateTimeFormat("en-us", {
+    month: "short",
+    year: "numeric",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+    timeZone: "UTC",
+});
+
 
 /* Countdown timer: https://blog.greenroots.info/how-to-create-a-countdown-timer-using-react-hooks */
 export default function Contest({ status, name, startTime, endTime }) {
@@ -20,16 +35,15 @@ export default function Contest({ status, name, startTime, endTime }) {
 
     return (
         <li className="mb-6">
-            {(status == "ONGOING") 
+            {(status == "ONGOING")
                 ? <>
                     <div className="text-lg leading-tight">
                         <b>
                             <div className="inline-block text-red-800">{status}</div> - {name}
                         </b>
                     </div>
-                    <div className="mt-1">
-                        {shortMonths[startTime.getMonth()] + " " + startTime.getDate()} to {shortMonths[endTime.getMonth()] + " " + endTime.getDate() + " "}
-                        - Ends in {interpretCountdownTime(countdown)}
+                    <div className="mt-1 text-sm">
+                        {shortDateFormat.format(startTime)} to {shortDateFormat.format(endTime)} - <nobr className="text-red-800"> Ends in {interpretCountdownTime(countdown)}</nobr>
                     </div>
                 </>
 
@@ -39,9 +53,11 @@ export default function Contest({ status, name, startTime, endTime }) {
                             <div className="inline-block text-blue-800">{status}</div> - {name}
                         </b>
                     </div>
-                    <div className="mt-1">
-                        {shortMonths[startTime.getMonth()] + " " + startTime.getDate() + " (" + interpretTime(startTime.getTime()) + ") "} to 
-                        {" " + shortMonths[endTime.getMonth()] + " " + endTime.getDate() + " (" + interpretTime(endTime.getTime()) + ") "}
+                    <div className="mt-1 text-sm">
+                        {dateFormat.format(startTime) + " UTC to "}
+                        {/* {shortMonths[startTime.getMonth()] + " " + startTime.getDate() + " (" + interpretTime(startTime.getTime()) + ") "} to  */}
+                        {/* {" " + shortMonths[endTime.getMonth()] + " " + endTime.getDate() + " (" + interpretTime(endTime.getTime()) + ") "} */}
+                        {dateFormat.format(endTime) + " UTC"}
                     </div>
                 </>
             }

@@ -18,11 +18,19 @@ export default function Home() {
                         />
                         <Announcement 
                             imgSrc="https://images.pexels.com/photos/2792157/pexels-photo-2792157.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" 
-                            username="Admin" 
+                            username="URNHR_KGKJG_KGF_WK" 
                             date="Sept 1, 2023 - 9:29 PM" 
                             pfp="../images/Default PFP.svg" 
                             title="Test Announcement" 
                             text="This is a test announcement with shorter text than the most recent one."
+                        />
+                        <Announcement 
+                            imgSrc="https://images.pexels.com/photos/2792157/pexels-photo-2792157.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" 
+                            username="Admino" 
+                            date="Sept 1, 2023 - 9:29 PM" 
+                            pfp="../images/Default PFP.svg" 
+                            title="Test Announcement" 
+                            text="This is a test announcement with text than the most recent one."
                         />
                     </ContentPanel>
                 </div>
@@ -33,14 +41,14 @@ export default function Home() {
                             <Contest 
                                 status="ONGOING" 
                                 name="Weekend Challenge 3-Hour Contest"
-                                startTime={new Date("2023-10-22T17:55:00Z")}    /* YYYY-MM-DDTHH:MM:SSZ for EST time */
-                                endTime={new Date("2023-10-25T18:55:00Z")}
+                                startTime={new Date(Date.UTC(2023, 9, 22, 17, 55, 0))}    /* YYYY-MM-DDTHH:MM:SSZ for EST time */
+                                endTime={new Date(Date.UTC(2023, 9, 25, 18, 55, 0))}
                             />
                             <Contest 
                                 status="UPCOMING" 
                                 name="Mock CSMC 2-Hour 9-Question Contest"
-                                startTime={new Date("2024-01-01T00:00:00Z")}    /* YYYY-MM-DDTHH:MM:SSZ for EST time */
-                                endTime={new Date("2024-01-02T23:59:59Z")}
+                                startTime={new Date(Date.UTC(2024, 0, 1, 0, 0, 0))}    /* YYYY-MM-DDTHH:MM:SSZ for EST time */
+                                endTime={new Date(Date.UTC(2024, 0, 2, 23, 59, 59))}
                             />
                         </ul>
                     </ContentPanel>
