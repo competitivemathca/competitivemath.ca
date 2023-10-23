@@ -1,6 +1,8 @@
 import ContentPanel from "../Components/ContentPanel"
 import Announcement from "../Components/Announcement"
 import Contest from "../Components/Contest"
+import Submission from "../Components/Submission"
+import Tag from "../Components/Tag"
 
 export default function Home() {
     return (
@@ -36,25 +38,33 @@ export default function Home() {
                 </div>
 
                 <div className="box w-3/12">
-                    <ContentPanel title="Upcoming Contests" className="flex flex-col overflow-auto py-4 pl-6">
+                    <ContentPanel title="Upcoming Contests" className="flex flex-col overflow-auto pt-6 pb-4 pl-6">
                         <ul>
                             <Contest 
                                 status="ONGOING" 
                                 name="Weekend Challenge 3-Hour Contest"
-                                startTime={new Date(Date.UTC(2023, 9, 22, 17, 55, 0))}    /* YYYY-MM-DDTHH:MM:SSZ for EST time */
+                                startTime={new Date(Date.UTC(2023, 9, 22, 17, 55, 0))}    /* NOTE: months are 0-indexed (0 = January, 11 = December) */
                                 endTime={new Date(Date.UTC(2023, 9, 25, 18, 55, 0))}
                             />
                             <Contest 
                                 status="UPCOMING" 
                                 name="Mock CSMC 2-Hour 9-Question Contest"
-                                startTime={new Date(Date.UTC(2024, 0, 1, 0, 0, 0))}    /* YYYY-MM-DDTHH:MM:SSZ for EST time */
+                                startTime={new Date(Date.UTC(2024, 0, 1, 0, 0, 0))}
                                 endTime={new Date(Date.UTC(2024, 0, 2, 23, 59, 59))}
                             />
                         </ul>
                     </ContentPanel>
 
-                    <ContentPanel title="Recent Submissions" className="flex flex-col overflow-auto py-4 pl-6">
-                        Hi
+                    <ContentPanel title="Recent Submissions" className="flex flex-col overflow-auto pt-6 pb-4 pl-6">
+                        <ul>
+                            <Submission
+                                problemName="Perimeter of a Cat's Head"
+                                source="Cat Appreciation 1-Hour Contest"
+                                result="Accepted"
+                                submissionDate={new Date(Date.UTC(2022, 6, 13, 16, 20, 0))}
+                                tags={["geometry", "trigonometry"]}
+                            />
+                        </ul>
                     </ContentPanel>
                 </div>
             </div>
