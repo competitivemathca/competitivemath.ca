@@ -5,38 +5,9 @@ import Submission from "../Components/Submission"
 
 export default function Home() {
     return (
-        <div className="flex flex-row justify-between gap-6">
-            <div className="box w-9/12">
-                <ContentPanel title="Important Announcements" className="flex flex-col overflow-auto py-4 pl-10" colour="bg-blue-100">
-                    <Announcement
-                        imgSrc="https://images.pexels.com/photos/2792157/pexels-photo-2792157.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-                        username="Admin"
-                        date="Sept 2, 2023 - 11:09 PM"
-                        pfp="../images/Default PFP.svg"
-                        title="Welcome to CompetitiveMath.ca"
-                        text="Lorem ipsum dolor sit amet. Et adipisci quis id dolor officiis et fugit molestiae. Et nisi perferendis et illo eveniet nam labore facere ut quia eveniet et fugit vero ea perspiciatis maxime? Est porro quisquam et aspernatur sint ut enim assumenda nam placeat accusantium. Et galisum odit qui possimus rerum est nulla ipsam ut corrupti dolore sed dolores blanditiis. Et voluptatum consequatur ex molestiae molestias est dolores ipsum ab ipsa fuga quo rerum iusto ea atque voluptas. Qui doloremque necessitatibus et aspernatur eius aut dicta illum quo consequatur molestiae in quam eaque. Ut facilis sunt ex quas tempore 33 quisquam saepe et quos officiis ut cupiditate autem qui voluptas fugiat? Hic odit explicabo non quia obcaecati ut consequatur debitis est consequatur nulla aut voluptatem galisum At veritatis praesentium."
-                    />
-                    <Announcement
-                        imgSrc="https://images.pexels.com/photos/2792157/pexels-photo-2792157.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-                        username="URNHR_KGKJG_KGF_WK"
-                        date="Sept 1, 2023 - 9:29 PM"
-                        pfp="../images/Default PFP.svg"
-                        title="Test Announcement"
-                        text="This is a test announcement with shorter text than the most recent one."
-                    />
-                    <Announcement
-                        imgSrc="https://images.pexels.com/photos/2792157/pexels-photo-2792157.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-                        username="Admino"
-                        date="Sept 1, 2023 - 9:29 PM"
-                        pfp="../images/Default PFP.svg"
-                        title="Test Announcement"
-                        text="This is a test announcement with text than the most recent one."
-                    />
-                </ContentPanel>
-            </div>
-
-            <div className="box w-3/12">
-                <ContentPanel title="Upcoming Contests" className="flex flex-col overflow-auto pt-6 pb-4 pl-6">
+        <div className="xl:flex justify-between gap-8">
+            <div className="space-y-8 order-1">
+                <ContentPanel title="Upcoming Contests" className="flex flex-col overflow-auto p-5">
                     <ul>
                         <Contest
                             status="ONGOING"
@@ -52,8 +23,7 @@ export default function Home() {
                         />
                     </ul>
                 </ContentPanel>
-
-                <ContentPanel title="Recent Submissions" className="flex flex-col overflow-auto pt-6 pb-4 pl-6">
+                <ContentPanel title="Recent Submissions" className="flex flex-col overflow-auto p-5">
                     <ul>
                         <Submission
                             problemName="Perimeter of a Cat's Head"
@@ -63,6 +33,34 @@ export default function Home() {
                             tags={["geometry", "trigonometry"]}
                         />
                     </ul>
+                </ContentPanel>
+            </div>
+            <div className="mt-8 xl:mt-0 xl:w-9/12">
+                <ContentPanel title="Important Announcements">
+                    <Announcement
+                        imgSrc="https://images.pexels.com/photos/240163/pexels-photo-240163.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        username="Admin"
+                        date="Sept 2, 2023 - 11:09 PM"
+                        pfp="../images/Default PFP.svg"
+                        title="Welcome to CompetitiveMath.ca"
+                        text="Lorem ipsum dolor sit amet. Et adipisci quis id dolor officiis et fugit molestiae. Et nisi perferendis et illo eveniet nam labore facere ut quia eveniet et fugit vero ea perspiciatis maxime? Est porro quisquam et aspernatur sint ut enim assumenda nam placeat accusantium. Et galisum odit qui possimus rerum est nulla ipsam ut corrupti dolore sed dolores blanditiis. Et voluptatum consequatur ex molestiae molestias est dolores ipsum ab ipsa fuga quo rerum iusto ea atque voluptas. Qui doloremque necessitatibus et aspernatur eius aut dicta illum quo consequatur molestiae in quam eaque. Ut facilis sunt ex quas tempore 33 quisquam saepe et quos officiis ut cupiditate autem qui voluptas fugiat? Hic odit explicabo non quia obcaecati ut consequatur debitis est consequatur nulla aut voluptatem galisum At veritatis praesentium."
+                    />
+                    <Announcement
+                        imgSrc="https://images.pexels.com/photos/6633013/pexels-photo-6633013.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        username="QQQQQQQQQQQQQQQQQ"
+                        date="Sept 1, 2023 - 9:29 PM"
+                        pfp="../images/Default PFP.svg"
+                        title="Test Announcement"
+                        text="This is a test announcement with shorter text than the most recent one."
+                    />
+                    <Announcement
+                        imgSrc="https://images.pexels.com/photos/1329295/pexels-photo-1329295.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        username="Admino"
+                        date="Sept 1, 2023 - 9:29 PM"
+                        pfp="../images/Default PFP.svg"
+                        title="Test Announcement"
+                        text="This is a test announcement with text than the most recent one."
+                    />
                 </ContentPanel>
             </div>
         </div>
