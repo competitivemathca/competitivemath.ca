@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { shortMonths, shortDateFormat, dateFormat, interpretTime, interpretCountdownTime, getCurrentTimeEST } from '../public/TimeModules.jsx'
+import { shortDateFormat, dateFormat, interpretCountdownTime, getCurrentTimeEST } from '../public/TimeModules.jsx'
 
 /* Countdown timer: https://blog.greenroots.info/how-to-create-a-countdown-timer-using-react-hooks */
 export default function Contest({ status, name, startTime, endTime }) {

@@ -1,5 +1,4 @@
 
-
 export default function Contests() {
     return (
         <div className="p-6">

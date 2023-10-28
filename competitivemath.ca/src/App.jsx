@@ -1,4 +1,5 @@
 import Navbar from "./Components/Navbar"
+import NavBarNew from "./Components/NavbarNew"
 import Home from "./pages/Home"
 import Problems from "./pages/Problems"
 import Contests from "./pages/Contests"
@@ -11,8 +12,8 @@ export default function App() {
 
   return (
     <>
-      <Navbar/>
-      <div>
+      <NavBarNew />
+      <div className="mt-12 overflow-x-hidden" >
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/problems" element={<Problems/>} />

@@ -2,8 +2,7 @@ import { useMatch, useResolvedPath } from "react-router-dom"
 
 export default function Navbar() {
     return (
-        <>
-        <nav className="bg-blue-800 text-white flex justify-between items-stretch gap-8 px-4 py-1">
+        <nav className="bg-blue-800 text-white flex justify-between items-center gap-8 px-4 py-1">
             <div className="justify-between inline-flex">
                 <a href="/" className="inline-flex">
                     <img src="../images/CM logo.svg" className="w-16 l-16"/>
@@ -23,7 +22,6 @@ export default function Navbar() {
                 <img src="../images/Default PFP.svg" className="w-14 l-14"/>
             </a>
         </nav>
-        </>
     )
 }
 

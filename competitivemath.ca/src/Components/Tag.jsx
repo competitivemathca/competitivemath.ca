@@ -1,5 +1,3 @@
-
-
 export default function Tag({ children }) {
     console.log(children)
 
