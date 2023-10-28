@@ -1,5 +1,4 @@
-import Navbar from "./Components/Navbar"
-import NavBarNew from "./Components/NavbarNew"
+import NavBar from "./Components/Navbar"
 import Home from "./pages/Home"
 import Problems from "./pages/Problems"
 import Contests from "./pages/Contests"
@@ -12,15 +11,15 @@ export default function App() {
 
   return (
     <>
-      <NavBarNew />
-      <div className="mt-12 overflow-x-hidden" >
+      <NavBar />
+      <div className="m-12 overflow-x-hidden">
         <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/problems" element={<Problems/>} />
-          <Route path="/contests" element={<Contests/>} />
-          <Route path="/community" element={<Community/>} />
-          <Route path="/about" element={<About/>} />
-          <Route path="/profile" element={<Profile/>} />
+          <Route path="/" element={<Home />} />
+          <Route path="/problems" element={<Problems />} />
+          <Route path="/contests" element={<Contests />} />
+          <Route path="/community" element={<Community />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </div>
     </>
