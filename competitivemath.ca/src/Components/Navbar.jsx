@@ -22,7 +22,6 @@ export default function NavBar() {
                 <button className="text-3xl ml-auto xl:hidden focus:outline-none">
                     &#9776;
                 </button>
-
                 <a href="/profile" className="hidden xl:inline-flex items-center ml-auto">
                     <img src="../images/Default PFP.svg" className="w-14 l-14" />
                 </a>

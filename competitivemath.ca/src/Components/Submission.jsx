@@ -12,7 +12,7 @@ export default function Submission({ problemName, source, result, submissionDate
                 <div>
                     Result: {result == "Accepted" 
                         ? <span className="text-[#1FAD36] font-bold">{result}</span> 
-                        : <span className="text-red-800 font-bold">{result}</span>
+                        : <span className="text-red-799 font-bold">{result}</span>
                     }
                 </div>
                 <div>

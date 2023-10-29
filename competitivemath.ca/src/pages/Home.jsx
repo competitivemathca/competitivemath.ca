@@ -36,7 +36,7 @@ export default function Home() {
                 </ContentPanel>
             </div>
             <div className="mt-8 xl:mt-0 xl:w-9/12">
-                <ContentPanel title="Important Announcements">
+                <ContentPanel title="Important Announcements" colour="bg-blue-100">
                     <Announcement
                         imgSrc="https://images.pexels.com/photos/240163/pexels-photo-240163.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                         username="Admin"
