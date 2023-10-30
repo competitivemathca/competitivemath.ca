@@ -11,9 +11,14 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+
+# import django
+# django.setup()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+# BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
@@ -38,6 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
+    'rest_framework',
+    'djoser',
+    
     'user',
 ]
 
@@ -58,7 +66,14 @@ ROOT_URLCONF = 'competitivemath.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        
+        # Build folder from frontend
+        
+        # Uncomment
+        # 'DIRS': [os.path.join(BASE_DIR, 'build')],
+        
+        'DIRS':[],
+
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -78,11 +93,32 @@ WSGI_APPLICATION = 'competitivemath.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE':'django.db.backends.sqlite3',
+    #     'NAME':os.path.join(BASE_DIR, 'db.sqlite3'),
+    # }
+    
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        
+        
+        # Set database to Postgresql
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'competitivemath.ca',
+        'USER': 'postgres',
+        'PASSWORD': 'F6Q7E!Pr4cdtH6HN',
+        'HOST':'127.0.0.1',
+        'PORT':'5432',
     }
 }
+
+# Djoser stuff
+EMAIL_BACKEND= 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'bndarw2006@gmail.com'
+EMAIL_HOST_PASSWORD = 'grosqszbgmyxjtiw'
+# EMAIL_HOST_PASSWORD = '1<3CR1SPYanch0v13s'
+EMAIL_USE_TLS = True
 
 
 # Password validation
@@ -120,6 +156,66 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+
+# Should prob uncomment this at one point
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'static')
+# ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        # 'rest_framework.authentication.TokenAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+}
+
+SIMPLE_JWT = {
+   'AUTH_HEADER_TYPES': ('JWT',),
+}
+
+# Djoser settings: https://djoser.readthedocs.io/en/latest/settings.html
+DJOSER = {
+    
+    # Specifies users login using their email
+    'LOGIN_FIELD':'username',
+    
+    # User create password (additional confirm password field called 're_password')
+    'USER_CREATE_PASSWORD_RETYPE': True,
+    
+    # Confirmation to email when they attempt to change username or password
+    'USERNAME_CHANGED_EMAIL_CONFIRMATION':True,
+    'PASSWORD_CHANGED_EMAIL_CONFIRMATION':True,
+    'SEND_CONFIRMATION_EMAIL':True,
+    
+    'SET_USERNAME_RETYPE':True,
+    
+    # Confirmation before reset password
+    'SET_PASSWORD_RETYPE':True,
+    
+    # Url to frontend password reset page
+    'PASSWORD_RESET_CONFIRM_URL': 'password/reset/confirmation/{uid}/{token}',
+    'USERNAME_RESET_CONFIRM_URL': 'email/reset/confirmation/{uid}/{token}',
+
+    # When user wants to activate their account, they click link of this format
+    'ACTIVATION_URL':'activate/{uid}/{token}',
+    
+    # Sends activation email for new user account
+    'SEND_ACTIVATION_EMAIL':True,
+    
+    # Serializers
+    'SERIALIZERS': {
+        # 'user_create': 'authentication.serializers.UserCreateSerializer',
+        # 'user': 'authentication.serializers.UserCreateSerializer',
+        # 'user_delete': 'djoser.serializers.UserDeleteSerializer',
+        'user_create': 'authentication.serializers.UserCreateSerializer',
+        'user': 'authentication.serializers.UserCreateSerializer',
+        'user_delete': 'djoser.serializers.UserDeleteSerializer',
+    }
+}
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

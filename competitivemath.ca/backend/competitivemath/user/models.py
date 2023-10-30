@@ -146,7 +146,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         blank=True,
         related_name='custom_user_set'
     )
-
+    
     
     # Associated custom User model with CustomUserManager class for managing User instances
     objects = CustomUserManager()
@@ -155,6 +155,10 @@ class User(AbstractBaseUser, PermissionsMixin):
     # Note:
     #   For "python manage.py createsuperuser" command in console, only the fields listed in 
     #       USERNAME_FIELD and REQUIRED_FIELDS are prompted
+    # Djoser note:
+    #   For djoser API requests, when there is input JSON of format "User.USERNAME_FIELD"
+    #   it is referring to custom User model, and the USERNAME_FIELD attribute here. Thus, for
+    #   this parameter in JSONs, we just put "username".
     USERNAME_FIELD = 'username'
     
     # Specifies name of field that represents email address of user
@@ -162,6 +166,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     EMAIL_FIELD = 'email'
     
     # Specifies list of fields that must be provided when creating new superuser via "python manage.py createsuperuser"
+    # REQUIRED_FIELDS = ['email', 'first_name', 'last_name']
     REQUIRED_FIELDS = ['email', 'first_name', 'last_name']
     
     class Meta:
