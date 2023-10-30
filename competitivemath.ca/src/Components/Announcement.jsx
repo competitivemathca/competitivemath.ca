@@ -1,17 +1,16 @@
 export default function Announcement({ imgSrc, username, date, pfp, title, text }) {
     return (
-        <div className="flex flex-row gap-6 bg-blue-50 w-11/12 rounded-2xl my-4 py-12 px-12">
+        <div className="bg-blue-50 rounded-2xl m-6 p-6 md:flex flex-row">
             <div className="flex flex-col">
-                <img className="min-w-[250px] h-[250px]" src={imgSrc} alt="Image" />
-                <div className="flex flex-row justify-between gap-3 mt-6">
-                    <p className="text-base"> Posted by {username} <br/> {date} </p>
-                    <img className="w-[50px] h-[50px]" src={pfp} alt="Profile Pickture"/>
+                <img className="w-[280px] aspect-square m-auto rounded-2xl object-cover" src={imgSrc} alt="Image" />
+                <div className="flex justify-between m-auto mt-4 w-[280px]">
+                    <p className="text-xs overlfow-ellipsis"> Posted by {username} <br/> {date} </p>
+                    <img className="w-[32px] h-[32px]" src={pfp} alt="Profile Pickture"/>
                 </div>
             </div>
-
-            <div className="pl-6">
-                <h1 className="text-3xl font-bold">{title}</h1>
-                <div className="pt-6">
+            <div className="mt-4 md:mt-0 md:ml-6">
+                <h1 className="text-xl font-bold md:text-3xl">{title}</h1>
+                <div className="">
                     <p>{text}</p>
                 </div>
             </div>

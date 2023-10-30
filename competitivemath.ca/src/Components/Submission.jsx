@@ -12,7 +12,7 @@ export default function Submission({ problemName, source, result, submissionDate
                 <div>
                     Result: {result == "Accepted" 
                         ? <span className="text-[#1FAD36] font-bold">{result}</span> 
-                        : <span className="text-red-800 font-bold">{result}</span>
+                        : <span className="text-red-799 font-bold">{result}</span>
                     }
                 </div>
                 <div>
@@ -20,8 +20,8 @@ export default function Submission({ problemName, source, result, submissionDate
                 </div>
             </div>
             <ul className="flex flex-row content-start gap-3 mt-3">
-                {(tags.map(tag =>
-                    <Tag>{tag}</Tag>
+                {(tags.map((tag, index) =>
+                    <Tag key={index}>{tag}</Tag>
                 ))}
             </ul>
         </li>
