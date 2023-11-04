@@ -1,14 +1,13 @@
-import NavBar from "./Components/Navbar"
-import Home from "./pages/Home"
-import Problems from "./pages/Problems"
-import Contests from "./pages/Contests"
-import Community from "./pages/Community"
-import About from "./pages/About"
-import Profile from "./pages/Profile"
-import { Route, Routes } from "react-router-dom"
+import NavBar from "./Components/Navbar";
+import Home from "./pages/Home";
+import Problems from "./pages/Problems";
+import Contests from "./pages/Contests";
+import Community from "./pages/Community";
+import About from "./pages/About";
+import Profile from "./pages/Profile";
+import { Route, Routes } from "react-router-dom";
 
 export default function App() {
-
   return (
     <>
       <NavBar />
@@ -23,5 +22,5 @@ export default function App() {
         </Routes>
       </div>
     </>
-  )
+  );
 }

@@ -1,12 +1,12 @@
 @tailwind base;
 
 @layer base {
-    h2 {
-        @apply font-bold;
-        @apply text-lg;
-        @apply leading-tight;
-        @apply mb-1;
-    }
+  h2 {
+    @apply font-bold;
+    @apply text-lg;
+    @apply leading-tight;
+    @apply mb-1;
+  }
 }
 
 @tailwind components;
