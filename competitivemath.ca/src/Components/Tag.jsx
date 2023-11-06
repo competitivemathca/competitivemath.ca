@@ -1,9 +1,11 @@
-export default function Tag({ children }) {
-    console.log(children)
+import PropTypes from "prop-types";
 
-    return (
-        <li className="bg-blue-200 p-1 text-xs">
-            {children}
-        </li>
-    )
+export default function Tag({ children }) {
+  console.log(children);
+
+  return <li className="bg-blue-200 p-1 text-xs">{children}</li>;
 }
+
+Tag.propTypes = {
+  children: PropTypes.node,
+};

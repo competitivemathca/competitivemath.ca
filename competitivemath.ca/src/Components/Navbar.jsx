@@ -2,8 +2,8 @@ import { useMatch, useResolvedPath } from "react-router-dom";
 
 export default function NavBar() {
   return (
-    <header class="bg-blue-800 text-white sticky top-0 z-10 shadow-xl">
-      <div class="p-4 flex justify-start items-center">
+    <header className="bg-blue-800 text-white sticky top-0 z-10 shadow-xl">
+      <div className="p-4 flex justify-start items-center">
         <a href="/" className="flex items-center">
           <img
             src="../../images/CM Logo.svg"
