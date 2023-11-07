@@ -1,7 +1,9 @@
+import PropTypes from "prop-types";
+
 export default function Announcement({
   imgSrc,
   username,
-  date,
+  date, // Pass in a date object instead
   pfp, // TODO: Instead of passing in a string source, we should pass in an image instead
   title,
   text,
@@ -30,3 +32,13 @@ export default function Announcement({
     </div>
   );
 }
+
+Announcement.propTypes = {
+    imgSrc: PropTypes.string,
+    username: PropTypes.string,
+    date: PropTypes.string, // Change to date object later
+    pfp: PropTypes.string, // Change to img node later
+    title: PropTypes.string,
+    text: PropTypes.string,
+}
+

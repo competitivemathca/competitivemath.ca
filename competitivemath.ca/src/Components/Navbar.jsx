@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useMatch, useResolvedPath } from "react-router-dom";
 
 export default function NavBar() {
@@ -54,3 +55,10 @@ function NavBtn({ href, children, ...props }) {
     </li>
   );
 }
+
+
+NavBtn.propTypes = {
+    href: PropTypes.string,
+    children: PropTypes.node,
+}
+

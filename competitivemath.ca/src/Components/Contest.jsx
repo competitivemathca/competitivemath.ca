@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
+
 import {
   shortDateFormat,
   dateFormat,
@@ -47,8 +48,6 @@ export default function Contest({ status, name, startTime, endTime }) {
           </h2>
           <div className="text-sm">
             {dateFormat.format(startTime) + " UTC to "}
-            {/* {shortMonths[startTime.getMonth()] + " " + startTime.getDate() + " (" + interpretTime(startTime.getTime()) + ") "} to  */}
-            {/* {" " + shortMonths[endTime.getMonth()] + " " + endTime.getDate() + " (" + interpretTime(endTime.getTime()) + ") "} */}
             {dateFormat.format(endTime) + " UTC"}
           </div>
         </>
