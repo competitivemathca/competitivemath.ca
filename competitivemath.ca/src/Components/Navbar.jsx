@@ -4,7 +4,7 @@ import { useMatch, useResolvedPath } from "react-router-dom";
 export default function NavBar() {
     return (
         <header className="bg-blue-800 text-white sticky top-0 z-10 shadow-xl">
-            <div className="p-4 flex justify-start items-center">
+            <div className="px-4 py-2 flex justify-start items-center">
                 <a href="/" className="flex items-center">
                     <img
                         src="../../images/CM Logo.svg"

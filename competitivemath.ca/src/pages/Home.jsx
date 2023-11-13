@@ -43,7 +43,7 @@ export default function Home() {
                     </ul>
                 </ContentPanel>
             </div>
-            <div className="mt-8 xl:mt-0 xl:w-9/12">
+            <div className="mt-8 xl:mt-0 xl:w-11/12">
                 <ContentPanel title="Important Announcements" colour="bg-blue-100">
                     {/*imgSrc and pfp are image links from the database*/}
                     <Announcement
