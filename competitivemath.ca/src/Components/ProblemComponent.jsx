@@ -9,11 +9,13 @@ export default function ProblemComponent({
 }) {
     return (
         <tr>
-            <td>{problemID}</td>
+            <td className="text-center py-3">{problemID}</td>
             <td>{problemName}</td>
-            <td>{tags}</td>
-            <td>{competitiveRating}</td>
-            <td>{completedSubmissions}</td>
+            <td>
+                <ul className="flex flex-row content-start gap-3">{tags}</ul>
+            </td>
+            <td className="text-center">{competitiveRating}</td>
+            <td className="text-center">{completedSubmissions}</td>
         </tr>
     );
 }
