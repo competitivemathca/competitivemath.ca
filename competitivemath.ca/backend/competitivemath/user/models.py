@@ -82,7 +82,13 @@ class User(AbstractBaseUser, PermissionsMixin):
     #   Database only stores path to image
     #   Actual image will be stored in cloud storage (Google Cloud Storage) as PNG or JPEG
     #       This is more efficient then storing base-64 encoded images in database
-    profile_picture = models.ImageField(blank=True)
+    # Figure out how they can send post request through json that contains image
+    # Figure out how to create User object, and how receiving image from json post request and inserting image into this field and how to do this
+    # Figure out how postgresql stores images in database like this
+    # Figure out how to go from image stored in database, to accessing that image, and sending taht image through get request to frontend, in format convertable from how image stored in database to able to transport through json, and frontend able to use it
+    # Also figure out how I can interact and User objects (i think using the .objects thing) and create methods to change user stuff and save to database
+    # 
+    profile_picture = models.TextField(blank=True)
     
     # Description for User
     #   Similar to DMOJ description
