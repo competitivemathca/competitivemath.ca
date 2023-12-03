@@ -28,53 +28,53 @@ export default function Problems() {
         competitiveRating: 2,
         completedSubmissons: 434,
     };
+    const exampleProblem3 = {
+        problemID: "IDKXD1",
+        problemName: "Problem",
+        tags: testTags1,
+        competitiveRating: 1,
+        completedSubmissons: 23,
+    };
+
+    const problems = [
+        exampleProblem1, exampleProblem2, exampleProblem3
+    ]
 
     return (
-        <div className="xl:w-8/12 border-[2px] border-solid border-blue-800 rounded-2xl overflow-hidden">
+        <div className="xl:w-8/12 border-[2px] border-solid border-blue-800 rounded-2xl overflow-auto">
             <TablePanel>
-                <colgroup>
-                    <col className="w-15% col-span-1"/>
-                    <col className="w-40% col-span-1"/>
-                    <col className="w-25% col-span-1"/>
-                    <col className="w-10% col-span-1"/>
-                    <col className="w-10% col-span-1"/>
-                </colgroup>
-
                 {/*Table heading in a separate component for style reuse*/}
                 <thead className="bg-blue-800 w-full px-6 py-2 text-white h-11 hover:cursor-default">
                     <tr>
-                        <th title="Problem ID">
+                        <th title="Problem ID" className="xl:w-[15%]">
                             #
                         </th>
-                        <th title="Problem Name" className="text-left">
+                        <th title="Problem Name" className="text-left xl:w-[50%]">
                             Problem Name
                         </th>
-                        <th title="Tags" className="text-left">
+                        <th title="Tags" className="text-left xl:w-[25%]">
                             Tags
                         </th>
-                        <th title="Competitive Rating">
+                        <th title="Competitive Rating" className="xl:w-[5%]">
                             CR
                         </th>
-                        <th title="Completed Submissions">
+                        <th title="Completed Submissions" className="xl:w-[5%]">
                             👥
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    <ProblemComponent
-                        problemID={exampleProblem1.problemID}
-                        problemName={exampleProblem1.problemName}
-                        tags={exampleProblem1.tags}
-                        competitiveRating={exampleProblem1.competitiveRating}
-                        completedSubmissions={exampleProblem1.completedSubmissons}
-                    />
-                    <ProblemComponent
-                        problemID={exampleProblem2.problemID}
-                        problemName={exampleProblem2.problemName}
-                        tags={exampleProblem2.tags}
-                        competitiveRating={exampleProblem2.competitiveRating}
-                        completedSubmissions={exampleProblem2.completedSubmissons}
-                    />
+                    { problems.map((problem, index) => (
+                        <ProblemComponent
+                            key={index}
+                            index={index}
+                            problemID={problem.problemID}
+                            problemName={problem.problemName}
+                            tags={problem.tags}
+                            competitiveRating={problem.competitiveRating}
+                            completedSubmissions={problem.completedSubmissons}
+                        />
+                    )) }
                 </tbody>
             </TablePanel>
         </div>
