@@ -8,7 +8,7 @@ import {
 export default function OngoingContest({name, author, startTime, endTime, window, participants}) {
     return (
         <div className="w-full bg-blue-200 border-[2px] border-solid border-gray-400 
-                        p-7 rounded-2xl overflow-hidden shadow-xl mb-7 xl:w-8/12
+                        p-7 rounded-2xl overflow-hidden shadow-xl mb-7
                         flex flex-row justify-between">
             {/*Left side*/}
             <div>

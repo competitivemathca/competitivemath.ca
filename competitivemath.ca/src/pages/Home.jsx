@@ -6,6 +6,7 @@ import Submission from "../Components/Submission";
 export default function Home() {
     return (
         <div className="xl:flex justify-between gap-8">
+            {/*Side content*/}
             <div className="space-y-8 order-1">
                 <ContentPanel
                     title="Upcoming Contests"
@@ -13,7 +14,7 @@ export default function Home() {
                 >
                     <ul>
                         <Contest
-                            status="ONGOING"
+                            author="Bur Oak Secondary School"
                             name="Weekend Challenge 3-Hour Contest"
                             startTime={
                                 new Date(Date.UTC(2023, 9, 22, 17, 55, 0))
@@ -21,7 +22,7 @@ export default function Home() {
                             endTime={new Date(Date.UTC(2023, 9, 25, 18, 55, 0))}
                         />
                         <Contest
-                            status="UPCOMING"
+                            author="Bur Oak Secondary School"
                             name="Mock CSMC 2-Hour 9-Question Contest"
                             startTime={new Date(Date.UTC(2024, 0, 1, 0, 0, 0))}
                             endTime={new Date(Date.UTC(2024, 0, 2, 23, 59, 59))}
@@ -43,6 +44,8 @@ export default function Home() {
                     </ul>
                 </ContentPanel>
             </div>
+
+            {/*Main content*/}
             <div className="mt-8 xl:mt-0 xl:w-11/12">
                 <ContentPanel title="Important Announcements" colour="bg-blue-100">
                     {/*imgSrc and pfp are image links from the database*/}

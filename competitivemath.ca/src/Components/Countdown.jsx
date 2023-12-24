@@ -5,6 +5,7 @@ import {
     getCurrentTimeEST,
 } from "../public/TimeModules.jsx";
 
+/* Countdown timer: https://blog.greenroots.info/how-to-create-a-countdown-timer-using-react-hooks */
 export default function Countdown({endTime}) {
     const countdownDate = endTime.getTime();
     const [countdown, setCountdown] = useState(
