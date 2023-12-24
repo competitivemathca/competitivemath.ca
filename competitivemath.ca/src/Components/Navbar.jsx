@@ -10,7 +10,7 @@ export default function NavBar() {
                         src="../../images/CM Logo.svg"
                         className="float-left w-16 l-16"
                     />
-                    <h1 className="float-left font-bold text-3xl">competitivemath.ca</h1>
+                    <h1 className="text-m float-left font-bold md:text-3xl">competitivemath.ca</h1>
                 </a>
                 {/* Header above */}
                 <ul
@@ -24,7 +24,7 @@ export default function NavBar() {
                     <NavBtn href="/about">About</NavBtn>
                 </ul>
                 {/* Mobile Open Button */}
-                <button className="text-3xl ml-auto xl:hidden focus:outline-none">
+                <button className="text-m ml-auto md:text-3xl xl:hidden focus:outline-none">
                     &#9776;
                 </button>
                 <a
