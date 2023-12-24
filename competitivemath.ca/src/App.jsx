@@ -11,7 +11,7 @@ export default function App() {
     return (
         <>
             <NavBar />
-            <div className="m-8 mb-0 pb-12 overflow-x-hidden">
+            <div className="my-6 mx-8 mb-0 pb-12 overflow-x-hidden">
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/problems" element={<Problems />} />

@@ -16,11 +16,11 @@ export default function Submission({
             <div className="leading-tight mt-2">
                 <div>From: {source}</div>
                 <div>
-                    Result:{" "}
+                    Result:
                     {result == "Accepted" ? (
-                        <span className="text-[#1FAD36] font-bold">{result}</span>
+                        <span className="text-[#1FAD36] font-bold"> {result}</span>
                     ) : (
-                        <span className="text-red-799 font-bold">{result}</span>
+                        <span className="text-red-799 font-bold"> {result}</span>
                     )}
                 </div>
                 <div>Submitted {dateFormat.format(submissionDate.getTime())}</div>

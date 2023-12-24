@@ -1,6 +1,13 @@
 @tailwind base;
 
 @layer base {
+  h1 {
+    @apply font-bold;
+    @apply text-2xl;
+    @apply leading-loose;
+    @apply mb-1;
+  }
+
   h2 {
     @apply font-bold;
     @apply text-lg;
