@@ -23,7 +23,7 @@ export default function Contests() {
   );
 
   // TODO: represent contest dates with a start and an end time 
-  const contests = [
+  const examplePastContests = [
     {
       date: new Date(2023, 11, 22, 17, 55, 0),
       name: "Weekend Challenge 3-Hour Contest",
@@ -33,7 +33,7 @@ export default function Contests() {
     },
   ];
 
-  const content = contests.map((contest, index) => (
+  const content = examplePastContests.map((contest, index) => (
     <PastContestElement
       key={index}
       index={index}
