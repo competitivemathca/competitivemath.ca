@@ -9,9 +9,9 @@ import { Route, Routes } from "react-router-dom";
 
 export default function App() {
     return (
-        <>
+        <div className="overflow-auto">
             <NavBar />
-            <div className="m-8 mb-0 pb-12 overflow-x-hidden">
+            <div className="m-8 mb-0 pb-12">
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/problems" element={<Problems />} />
@@ -21,6 +21,6 @@ export default function App() {
                     <Route path="/profile" element={<Profile />} />
                 </Routes>
             </div>
-        </>
+        </div>
     );
 }

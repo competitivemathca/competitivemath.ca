@@ -1,5 +1,6 @@
-import ProblemComponent from "../Components/ProblemComponent";
+import ProblemElement from "../Components/ProblemElement";
 import Tag from "../Components/Tag";
+import TablePanel from "../Components/TablePanel";
 
 export default function Problems() {
   const testTags1 = [
@@ -13,7 +14,7 @@ export default function Problems() {
   ];
 
   const exampleProblem1 = {
-    problemID: "POOPCH3",
+    problemID: "Q354A",
     problemName: "Perimeter of a Cat's Head",
     tags: testTags1,
     competitiveRating: 4,
@@ -37,42 +38,37 @@ export default function Problems() {
 
   const problems = [exampleProblem1, exampleProblem2, exampleProblem3];
 
-  return (
-    <div className="xl:w-8/12 border-[2px] border-solid border-blue-800 rounded-2xl overflow-x-auto">
-      <table className="w-full">
-        <thead className="bg-blue-800 w-full px-6 py-2 text-white h-11 hover:cursor-default">
-          <tr>
-            <th title="Problem ID" className="pl-3 text-left xl:w-[15%]">
-              #
-            </th>
-            <th title="Problem Name" className="text-left xl:w-[50%]">
-              Problem Name
-            </th>
-            <th title="Tags" className="text-left xl:w-[25%]">
-              Tags
-            </th>
-            <th title="Competitive Rating" className="text-left xl:w-[5%]">
-              CR
-            </th>
-            <th title="Completed Submissions" className="text-left xl:w-[5%]">
-              👥
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {problems.map((problem, index) => (
-            <ProblemComponent
-              key={index}
-              index={index}
-              problemID={problem.problemID}
-              problemName={problem.problemName}
-              tags={problem.tags}
-              competitiveRating={problem.competitiveRating}
-              completedSubmissions={problem.completedSubmissons}
-            />
-          ))}
-        </tbody>
-      </table>
-    </div>
+  const heading = (
+    <tr>
+      <th title="Problem ID" className="px-3 text-left xl:w-[15%]">
+        #
+      </th>
+      <th title="Problem Name" className="px-3 text-left xl:w-[50%]">
+        Problem Name
+      </th>
+      <th title="Tags" className="px-3 text-left xl:w-[25%]">
+        Tags
+      </th>
+      <th title="Competitive Rating" className="px-3 text-left xl:w-[5%]">
+        CR
+      </th>
+      <th title="Completed Submissions" className="px-3 text-left xl:w-[5%]">
+        👥
+      </th>
+    </tr>
   );
+
+  const content = problems.map((problem, index) => (
+    <ProblemElement
+      key={index}
+      index={index}
+      problemID={problem.problemID}
+      problemName={problem.problemName}
+      tags={problem.tags}
+      competitiveRating={problem.competitiveRating}
+      completedSubmissions={problem.completedSubmissons}
+    />
+  ));
+
+  return <TablePanel heading={heading} content={content} />;
 }
