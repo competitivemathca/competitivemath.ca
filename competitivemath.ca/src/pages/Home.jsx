@@ -8,10 +8,7 @@ export default function Home() {
         <div className="xl:flex justify-between gap-8">
             {/*Side content*/}
             <div className="space-y-8 order-1">
-                <ContentPanel
-                    title="Upcoming Contests"
-                    className="flex flex-col overflow-auto p-5"
-                >
+                <ContentPanel title="Upcoming Contests">
                     <ul>
                         <Contest
                             author="Bur Oak Secondary School"
@@ -29,10 +26,7 @@ export default function Home() {
                         />
                     </ul>
                 </ContentPanel>
-                <ContentPanel
-                    title="Recent Submissions"
-                    className="flex flex-col overflow-auto p-5"
-                >
+                <ContentPanel title="Recent Submissions">
                     <ul>
                         <Submission
                             problemName="Perimeter of a Cat's Head"

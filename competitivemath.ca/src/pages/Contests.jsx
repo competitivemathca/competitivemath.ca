@@ -22,14 +22,14 @@ const testUpcomingContest1 = {
 }
 
 const ongoingContests = [testOngoingContest1];
-const upcomingContests = [testUpcomingContest1];
+const upcomingContests = [testUpcomingContest1, testUpcomingContest1];
 
 export default function Contests() {
     return (
         <div className="p-6">
             <Heading>Ongoing Contests</Heading>
             
-            <div className="xl:flex justify-between gap-50">
+            <div className="xl:flex justify-between gap-20">
                 {/*Side content*/}
                 <div className="space-y-8 order-1">
                     <ContentPanel title="Scheduled Contests">
@@ -48,7 +48,7 @@ export default function Contests() {
                 </div>
 
                 {/*Main content*/}
-                <div className="xl:w-8/12">
+                <div className="mt-8 xl:mt-0 xl:w-10/12">
                     { ongoingContests.length > 0
                     ? ongoingContests.map((contest, index) => (
                         <OngoingContest
