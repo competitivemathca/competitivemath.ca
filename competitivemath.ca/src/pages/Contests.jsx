@@ -1,6 +1,7 @@
 import Heading from "../Components/Heading";
 import OngoingContest from "../Components/OngoingContest";
 import ContentPanel from "../Components/ContentPanel";
+import Contest from "../Components/Contest";
 
 const testOngoingContest1 = {
     name: "Weekend Challenge 3-Hour Contest",
@@ -11,18 +12,38 @@ const testOngoingContest1 = {
     participants: 26
 }
 
+const testUpcomingContest1 = {
+    name: "Mock CSMC 2-Hour 9-Question Contest",
+    author: "Bur Oak Secondary School",
+    startTime: new Date(Date.UTC(2024, 0, 1, 0, 0, 0)),
+    endTime: new Date(Date.UTC(2024, 0, 2, 23, 59, 59)),
+    window: "02:00",
+    participants: 26
+}
+
 const ongoingContests = [testOngoingContest1];
+const upcomingContests = [testUpcomingContest1];
 
 export default function Contests() {
     return (
         <div className="p-6">
             <Heading>Ongoing Contests</Heading>
             
-            <div className="xl:flex justify-between gap-8">
+            <div className="xl:flex justify-between gap-50">
                 {/*Side content*/}
                 <div className="space-y-8 order-1">
                     <ContentPanel title="Scheduled Contests">
-                        Hi
+                        <ul>
+                            { upcomingContests.map((contest, index) => (
+                                <Contest
+                                    key={index}
+                                    name={contest.name}
+                                    startTime={contest.startTime}
+                                    endTime={contest.endTime}
+                                    author={contest.author}
+                                />
+                            )) }
+                        </ul>
                     </ContentPanel>
                 </div>
 
