@@ -27,11 +27,32 @@ const upcomingContests = [testUpcomingContest1, testUpcomingContest1];
 export default function Contests() {
     return (
         <div className="p-6">
-            <Heading>Ongoing Contests</Heading>
-            
             <div className="xl:flex justify-between gap-20">
+
+                {/*Main content*/}
+                <div className="mt-8 xl:mt-0 xl:w-10/12">
+                    <Heading>Ongoing Contests</Heading>
+
+                    { ongoingContests.length > 0
+                    ? ongoingContests.map((contest, index) => (
+                        <OngoingContest
+                            key={index}
+                            name={contest.name}
+                            author={contest.author}
+                            startTime={contest.startTime}
+                            endTime={contest.endTime}
+                            window={contest.window}
+                            participants={contest.participants}
+                        />    
+                    ))
+                    : <p className="mb-5">There are no ongoing contests right now.</p> }
+
+                    <Heading>Past Contests</Heading>
+
+                </div>
+                
                 {/*Side content*/}
-                <div className="space-y-8 order-1">
+                <div className="space-y-8 order-1 mt-6">
                     <ContentPanel title="Scheduled Contests">
                         <ul>
                             { upcomingContests.map((contest, index) => (
@@ -46,26 +67,7 @@ export default function Contests() {
                         </ul>
                     </ContentPanel>
                 </div>
-
-                {/*Main content*/}
-                <div className="mt-8 xl:mt-0 xl:w-10/12">
-                    { ongoingContests.length > 0
-                    ? ongoingContests.map((contest, index) => (
-                        <OngoingContest
-                            key={index}
-                            name={contest.name}
-                            author={contest.author}
-                            startTime={contest.startTime}
-                            endTime={contest.endTime}
-                            window={contest.window}
-                            participants={contest.participants}
-                        />    
-                    ))
-                    : <p className="mb-5">There are no ongoing contests right now.</p> }
-                </div>
             </div>
-
-            <Heading>Past Contests</Heading>
         </div>
     );
 }
