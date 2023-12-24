@@ -92,7 +92,7 @@ export default function Contests() {
             <p className="mb-5">There are no ongoing contests right now.</p>
           )}
           <Heading>Past Contests</Heading>
-          <TablePanel heading={tableHeading} content={content} />;
+          <TablePanel heading={tableHeading} content={content} />
         </div>
 
         {/*Side content*/}
