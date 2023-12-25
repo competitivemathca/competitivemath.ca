@@ -4,6 +4,7 @@ import ContentPanel from "../Components/ContentPanel";
 import Contest from "../Components/Contest";
 import PastContestElement from "../Components/PastContestElement";
 import TablePanel from "../Components/TablePanel";
+import SearchBar from "../Components/SearchFilters/SearchBar";
 
 const testOngoingContest1 = {
   name: "Weekend Challenge 3-Hour Contest",
@@ -24,7 +25,7 @@ const testUpcomingContest1 = {
 };
 
 const ongoingContests = [testOngoingContest1];
-const upcomingContests = [testUpcomingContest1, testUpcomingContest1];
+const upcomingContests = [testUpcomingContest1];
 
 /* === This is for the tables ===*/
 const tableHeading = (
@@ -42,12 +43,12 @@ const tableHeading = (
       CR
     </th>
     <th title="Contest Participants" className="px-3 text-left xl:w-[5%]">
-      👥
+      <img src="../../images/People Icon White.png" className="w-5 h-5"/>
     </th>
   </tr>
 );
 
-const examplePastContests = [
+export const examplePastContests = [
   {
     date: new Date(2023, 11, 22, 17, 55, 0),
     name: "Weekend Challenge 3-Hour Contest",
@@ -73,6 +74,7 @@ export default function Contests() {
   return (
     <div className="p-6">
       <div className="xl:flex justify-between gap-20">
+
         {/*Main content*/}
         <div className="mt-8 xl:mt-0 xl:w-10/12">
           <Heading>Ongoing Contests</Heading>
@@ -109,6 +111,10 @@ export default function Contests() {
                 />
               ))}
             </ul>
+          </ContentPanel>
+
+          <ContentPanel title="Search Filters">
+            HELLO
           </ContentPanel>
         </div>
       </div>

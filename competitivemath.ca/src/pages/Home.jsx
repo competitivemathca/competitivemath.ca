@@ -19,12 +19,14 @@ export default function Home() {
                 new Date(Date.UTC(2023, 9, 22, 17, 55, 0))
               } /* NOTE: months are 0-indexed (0 = January, 11 = December) */
               endTime={new Date(Date.UTC(2023, 9, 25, 18, 55, 0))}
+              author="Bur Oak Secondary School"
             />
             <Contest
               status="UPCOMING"
               name="Mock CSMC 2-Hour 9-Question Contest"
               startTime={new Date(Date.UTC(2024, 0, 1, 0, 0, 0))}
               endTime={new Date(Date.UTC(2024, 0, 2, 23, 59, 59))}
+              author="Bur Oak Secondary School"
             />
           </ul>
         </ContentPanel>
