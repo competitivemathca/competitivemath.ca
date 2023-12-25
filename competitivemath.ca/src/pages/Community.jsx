@@ -1,6 +1,7 @@
 import UserRankingElement from "../Components/UserRankingElement.jsx";
 import ClubRankingElement from "../Components/ClubRankingElement.jsx";
 import TablePanel from "../Components/TablePanel";
+import Heading from "../Components/Heading.jsx";
 
 // TODO: add sorting
 export default function Community() {
@@ -125,16 +126,16 @@ export default function Community() {
     />
   ));
   return (
-    <>
-      <div>Users</div>
-      <TablePanel heading={userRankingsHeading} content={userRankingContent} />
-      <div className="mt-8">
-        Clubs 
-        <TablePanel
-          heading={clubRankingsHeading}
-          content={clubRankingContent}
-        />
+    <div className="p-6">
+      <div>
+        <Heading>Users</Heading>
+        <TablePanel heading={userRankingsHeading} content={userRankingContent} />
       </div>
-    </>
+
+      <div className="mt-8">
+        <Heading>Clubs</Heading>
+        <TablePanel heading={clubRankingsHeading} content={clubRankingContent} />
+      </div>
+    </div>
   );
 }

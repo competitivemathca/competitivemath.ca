@@ -16,6 +16,15 @@
   }
 }
 
+.slider-track {
+  height: 0.75rem;
+  border-radius: 0.375rem;
+}
+
+.slider-track.slider-track-1 {
+  background: #9EC5FF;
+}
+
 @tailwind components;
 @tailwind utilities;
 

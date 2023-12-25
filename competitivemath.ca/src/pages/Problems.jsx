@@ -7,6 +7,7 @@ import Dropdown from "../Components/SearchFilters/Dropdown";
 import { examplePastContests } from "./Contests";
 import { tags } from "../public/PublicData";
 import RangeSlider from "../Components/SearchFilters/RangeSlider";
+import Heading from "../Components/Heading";
 
 export default function Problems() {
   const testTags1 = [
@@ -77,12 +78,12 @@ export default function Problems() {
   ));
 
   return (
-    <div className="xl:flex flex-row justify-between gap-8">
+    <div className="xl:flex flex-row justify-between gap-12 p-6">
 
       {/*Side content*/}
-      <div className="space-y-8 order-1">
+      <div className="space-y-8 order-1 w-3/12 mt-6">
         <ContentPanel title="Search Filters">
-          <SearchBar/>
+          <SearchBar hintText="Enter problem name..."/>
           <Dropdown
             label="Origin (Contest Name)"
             options={examplePastContests}
@@ -101,6 +102,7 @@ export default function Problems() {
 
       {/*Main content*/}
       <div className="xl:w-9/12 mt-8 xl:mt-0">
+        <Heading>Problems</Heading>
         <TablePanel heading={heading} content={content} />
       </div>
     </div>

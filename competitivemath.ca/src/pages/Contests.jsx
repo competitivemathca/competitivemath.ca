@@ -5,6 +5,8 @@ import Contest from "../Components/Contest";
 import PastContestElement from "../Components/PastContestElement";
 import TablePanel from "../Components/TablePanel";
 import SearchBar from "../Components/SearchFilters/SearchBar";
+import Dropdown from "../Components/SearchFilters/Dropdown";
+import RangeSlider from "../Components/SearchFilters/RangeSlider";
 
 const testOngoingContest1 = {
   name: "Weekend Challenge 3-Hour Contest",
@@ -76,8 +78,9 @@ export default function Contests() {
       <div className="xl:flex justify-between gap-20">
 
         {/*Main content*/}
-        <div className="mt-8 xl:mt-0 xl:w-10/12">
+        <div className="mt-8 xl:mt-0 xl:w-9/12">
           <Heading>Ongoing Contests</Heading>
+
           {ongoingContests.length > 0 ? (
             ongoingContests.map((contest, index) => (
               <OngoingContest
@@ -93,12 +96,10 @@ export default function Contests() {
           ) : (
             <p className="mb-5">There are no ongoing contests right now.</p>
           )}
-          <Heading>Past Contests</Heading>
-          <TablePanel heading={tableHeading} content={content} />
         </div>
-
+        
         {/*Side content*/}
-        <div className="space-y-8 order-1 mt-6">
+        <div className="space-y-8 order-1 mt-6 w-3/12">
           <ContentPanel title="Scheduled Contests">
             <ul>
               {upcomingContests.map((contest, index) => (
@@ -112,9 +113,31 @@ export default function Contests() {
               ))}
             </ul>
           </ContentPanel>
+        </div>
+      </div>
+      
 
+      <div className="xl:flex justify-between gap-20">
+        
+        {/*Main Content*/}
+        <div className="mt-8 xl:mt-0 xl:w-9/12">
+          <Heading>Past Contests</Heading>
+          <TablePanel heading={tableHeading} content={content} />
+        </div>
+
+        {/*Side content*/}
+        <div className="space-y-8 order-1 mt-6 w-3/12">
           <ContentPanel title="Search Filters">
-            HELLO
+            <SearchBar hintText="Enter contest name..."/>
+            <Dropdown
+              label="Author (Club/User)"
+              options={examplePastContests}
+            />
+            <RangeSlider
+              label="Rating Range"
+              min={1}
+              max={5}
+            />
           </ContentPanel>
         </div>
       </div>

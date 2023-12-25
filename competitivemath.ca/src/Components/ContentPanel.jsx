@@ -13,7 +13,7 @@ export default function ContentPanel({ title, children, colour, ...props }) {
             </div>
 
             {/*Default tailwind classes applied; override className if needed*/}
-            <div className="overflow-x-auto p-5" {...props}>
+            <div className="overflow-auto p-5" {...props}>
                 {children}
             </div>
         </div>
