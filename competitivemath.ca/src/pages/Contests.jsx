@@ -7,6 +7,7 @@ import TablePanel from "../Components/TablePanel";
 import SearchBar from "../Components/SearchFilters/SearchBar";
 import Dropdown from "../Components/SearchFilters/Dropdown";
 import RangeSlider from "../Components/SearchFilters/RangeSlider";
+import DateRangePicker from "../Components/SearchFilters/DateRangePicker";
 
 const testOngoingContest1 = {
   name: "Weekend Challenge 3-Hour Contest",
@@ -133,6 +134,7 @@ export default function Contests() {
               label="Author (Club/User)"
               options={examplePastContests}
             />
+            <DateRangePicker/>
             <RangeSlider
               label="Rating Range"
               min={1}

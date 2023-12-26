@@ -8,6 +8,8 @@ import { examplePastContests } from "./Contests";
 import { tags } from "../public/PublicData";
 import RangeSlider from "../Components/SearchFilters/RangeSlider";
 import Heading from "../Components/Heading";
+import DateInput from "../Components/SearchFilters/DateInput";
+import DateRangePicker from "../Components/SearchFilters/DateRangePicker";
 
 export default function Problems() {
   const testTags1 = [
