@@ -6,7 +6,7 @@ import Submission from "../Components/Submission";
 export default function Home() {
   return (
     <div className="xl:flex justify-between gap-12 p-6">
-      <div className="space-y-8 order-1">
+      <div className="space-y-8 order-1 w-1/4">
         <ContentPanel
           title="Upcoming Contests"
           className="flex flex-col overflow-auto p-5"
@@ -45,7 +45,7 @@ export default function Home() {
           </ul>
         </ContentPanel>
       </div>
-      <div className="mt-8 xl:mt-0 xl:w-11/12 overflow-x-hidden">
+      <div className="mt-8 xl:mt-0 xl:w-3/4 overflow-x-hidden">
         <ContentPanel title="Important Announcements" colour="bg-blue-100">
           {/*imgSrc and pfp are image links from the database*/}
           <Announcement
