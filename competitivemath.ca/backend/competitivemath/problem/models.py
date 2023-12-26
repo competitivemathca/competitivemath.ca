@@ -2,9 +2,11 @@ from django.db import models
 from django.utils import timezone
 
 # Create your models here.
-class Problem:
+class Problem(models.Model):
     
     
+    
+    # Maximum length of a problem's name
     PROBLEM_NAME_MAX_LEN = 50
     
     
@@ -69,7 +71,17 @@ class Problem:
     
     
     
-class Tag:
+    class SolutionType(models.TextChoices):
+        
+        NUMERICAL = "NU"
+        MULTIPLE_CHOICE = "MC"
+        SHOW_WORK = "SW"
+    
+    solution_type = models.CharField(max_length=2, choices=SolutionType.choices, default=SolutionType.NUMERICAL)
+    
+    
+    
+class Tag(models.Model):
     
     TAG_MAX_LEN = 50
     

@@ -1,5 +1,5 @@
 # API Endpoints for User Account, JWT Token, and Password stuff
-Create user account:
+## Create user account:
 - POST request to "http://localhost:8000/auth/users/", pass in JSON format
 {
     "email":"andarw2006@gmail.com",
@@ -54,7 +54,7 @@ The localhost:8000 team
 - **Still need to figure out how to resend activate account email.**
 
 
-Activate user account:
+## Activate user account:
 - POST request to "http://localhost:8000/auth/users/activation/", pass in JSON format
 {
     "uid": "MQ",
@@ -70,7 +70,7 @@ Activate user account:
 }
 
 
-Login to user account (i.e. get JWT token):
+## Login to user account (i.e. get JWT token):
 - POST request to "http://localhost:8000/auth/jwt/create/", pass in JSON format
 {
     "username":"blhod",
@@ -85,10 +85,10 @@ Login to user account (i.e. get JWT token):
 {
     "detail": "No active account found with the given credentials"
 } (*doesn't differentiate between whether username doesn't exist or password is incorrect*)
-- There is no actual like constant information being held in backend about if user is logged in or not, or who is logged in (e.g. a fucking boolean variable "is_logged_in"). Just whenever send POST requests to backend, include the token in the JSON, as backend uses some process to verify if user is logged in. 
+- There is no actual like constant information being held in backend about if user is logged in or not, or who is logged in (e.g. a boolean variable "is_logged_in"). Just whenever send POST requests to backend, include the token in the JSON, as backend uses some process to verify if user is logged in. 
 
 
-Refresh JWT token (get new JWT token cus session soon to end):
+## Refresh JWT token (get new JWT token because session soon to end):
 - POST request to "http://localhost:8000/auth/jwt/refresh/", pass in JSON format
 {
     "refresh":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY5ODc5MDU5MiwiaWF0IjoxNjk4NzA0MTkyLCJqdGkiOiIxNDE0ZjUwN2MyYWU0NGVhYTdkZTZkNWY4NDAzYmM0YyIsInVzZXJfaWQiOjJ9.aZrlWaW34prPDBrjlGSWs58ywLl5stkdWMjJ-WdmkQQ"
@@ -104,7 +104,7 @@ Refresh JWT token (get new JWT token cus session soon to end):
 }
 
 
-Reset password (declare user wants to reset password):
+## Reset password (declare user wants to reset password):
 - POST request to "http://localhost:8000/auth/users/reset_password/", pass in JSON format
 {
     "email": "bndarw2006@gmail.com"
@@ -127,7 +127,7 @@ The localhost:8000 team
 - **Still need to figure out how to resend reset password confirmation email**
 
 
-Reset password (actually reset the password):
+## Reset password (actually reset the password):
 - POST request to "http://localhost:8000/auth/users/reset_password_confirm/", pass in JSON format:
 {
     "uid": "Mg",

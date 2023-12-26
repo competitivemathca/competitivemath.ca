@@ -2,8 +2,9 @@ from django.db import models
 from django.utils import timezone
 
 # Create your models here.
-class Club:
+class Club(models.Model):
     
+    # Maximum club name length
     NAME_MAX_LEN = 30;
     
     # Name of club

@@ -185,4 +185,25 @@ class User(AbstractBaseUser, PermissionsMixin):
     def get_short_name(self):
         return self.username or self.email.split('@')[0]
     
-    
+    def get_public_profile_as_dict(self):
+        
+        following = [i.username for i in self.following]
+        followers = [i.username for i in self.followers.all()]
+        
+        user_profile_dict = {
+            'username':self.username,
+            'email':self.email,
+            'first_name':self.first_name,
+            'last_name':self.last_name,
+            'profile_picture':self.profile_picture,
+            'description':self.description,
+            'following':following,
+            'followers':followers,
+            'date_joined':self.date_joined,
+            'last_login':self.last_login,
+            'is_active':self.is_active,
+            'is_staff':self.is_staff,
+            'is_superuser':self.is_superuser
+        }
+        
+        return user_profile_dict
