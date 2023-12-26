@@ -5,7 +5,11 @@ import Contests from "./pages/Contests";
 import Community from "./pages/Community";
 import About from "./pages/About";
 import Profile from "./pages/Profile";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 import { Route, Routes } from "react-router-dom";
+
+const loggedIn = false;
 
 export default function App() {
   return (
@@ -18,7 +22,8 @@ export default function App() {
           <Route path="/contests" element={<Contests />} />
           <Route path="/community" element={<Community />} />
           <Route path="/about" element={<About />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile" element={loggedIn ? <Profile /> : <Login />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </div>
     </div>
