@@ -12,10 +12,11 @@ export default function Dropdown({ label, options }) {
             <div>
                 <select
                     className="w-full p-2 bg-white border-2 border-gray-300 rounded-lg cursor-pointer"
-                    value={chosen}
-                    readOnly
-                    onClick={() => setShow(show => !show)}  //Toggle the calendar
-                />
+                >
+                    { options.map((option, index) => (
+                        <option key={index} value={option}>{option}</option>
+                    ))}
+                </select>
             </div>
         </div>
     )

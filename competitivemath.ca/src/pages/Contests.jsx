@@ -73,7 +73,10 @@ const content = examplePastContests.map((contest, index) => (
   />
 ));
 
+const contestNames = examplePastContests.map(contest => contest.name);
+
 export default function Contests() {
+
   return (
     <div className="p-6">
       <div className="xl:flex justify-between gap-20">
@@ -132,7 +135,7 @@ export default function Contests() {
             <SearchBar hintText="Enter contest name..."/>
             <Dropdown
               label="Author (Club/User)"
-              options={examplePastContests}
+              options={contestNames}
             />
             <DateRangePicker/>
             <RangeSlider
