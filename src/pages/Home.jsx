@@ -38,7 +38,7 @@ export default function Home() {
             <Submission
               problemName="Perimeter of a Cat's Head"
               source="Cat Appreciation 1-Hour Contest"
-              result="Accepted"
+              result="Correct"
               submissionDate={new Date(Date.UTC(2022, 6, 13, 16, 20, 0))}
               tags={["geometry", "trigonometry"]}
             />

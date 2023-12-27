@@ -1,7 +1,6 @@
 // The element suffix means that this component is meant to be a table element (table row)
 
 export default function PastContestElement({
-  index,
   date,
   name,
   authors,
@@ -16,7 +15,7 @@ export default function PastContestElement({
     authors.slice(-1);
 
   return (
-    <tr className={index % 2 == 1 ? "bg-blue-100" : "bg-white"}>
+    <tr className="even:bg-blue-100 odd:bg-white">
       <td className="text-left px-3 py-3">{dateString}</td>
       <td className="text-left px-3">{name}</td>
       <td className="text-left px-3">{authorsString}</td>
