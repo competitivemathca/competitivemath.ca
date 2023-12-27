@@ -16,8 +16,8 @@ export default function Community() {
       <th title="Username" className="px-3 text-left xl:w-[80%]">
         Username
       </th>
-      <th title="Points" className="px-3 text-left xl:w-[5%]">
-        Points
+      <th title="Rating" className="px-3 text-left xl:w-[5%]">
+        Rating
       </th>
       <th title="Problems Solved" className="px-3 text-left xl:w-[5%]">
         Problems
@@ -39,8 +39,8 @@ export default function Community() {
       <th title="Number of Users" className="px-3 text-left xl:w-[5%]">
         Users
       </th>
-      <th title="Points" className="px-3 text-left xl:w-[5%]">
-        Points
+      <th title="Rating" className="px-3 text-left xl:w-[5%]">
+        Rating
       </th>
       <th title="Contests Hosted" className="px-3 text-left xl:w-[10%]">
         Contests Hosted
@@ -52,42 +52,42 @@ export default function Community() {
     {
       ranking: 1,
       username: "math",
-      points: 6490,
+      rating: 6490,
       problems: 3,
       contests: 2,
     },
     {
       ranking: 2,
       username: "matth",
-      points: 5490,
+      rating: 5490,
       problems: 3,
       contests: 2,
     },
     {
       ranking: 3,
       username: "IOQWUE",
-      points: 4490,
+      rating: 4490,
       problems: 3,
       contests: 2,
     },
     {
       ranking: 4,
       username: "ASKLDJASD",
-      points: 3390,
+      rating: 3390,
       problems: 3,
       contests: 2,
     },
     {
       ranking: 5,
       username: "asdkljasd",
-      points: 3000,
+      rating: 3000,
       problems: 1,
       contests: 2,
     },
     {
       ranking: 6,
       username: "TheGlazersTM",
-      points: 1290,
+      rating: 1290,
       problems: 3,
       contests: 2,
     },
@@ -97,7 +97,7 @@ export default function Community() {
       ranking: 1,
       clubName: "BOSS_MATH",
       users: 1000,
-      points: 12390,
+      rating: 12390,
       contestsHosted: 3,
     },
   ];
@@ -108,7 +108,7 @@ export default function Community() {
       index={index}
       ranking={user.ranking}
       username={user.username}
-      points={user.points}
+      rating={user.rating}
       problems={user.problems}
       contests={user.contests}
     />
@@ -121,7 +121,7 @@ export default function Community() {
       ranking={club.ranking}
       clubName={club.clubName}
       users={club.users}
-      points={club.points}
+      rating={club.rating}
       contestsHosted={club.contestsHosted}
     />
   ));

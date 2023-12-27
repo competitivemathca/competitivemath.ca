@@ -3,7 +3,7 @@ export default function ClubRankingElement({
   ranking,
   clubName,
   users,
-  points,
+  rating,
   contestsHosted,
 }) {
   return (
@@ -11,7 +11,7 @@ export default function ClubRankingElement({
       <td className="text-left px-3 py-3">{ranking}</td>
       <td className="text-left px-3">{clubName}</td>
       <td className="text-left px-3">{users}</td>
-      <td className="text-left px-3">{points}</td>
+      <td className="text-left px-3">{rating}</td>
       <td className="text-left px-3">{contestsHosted}</td>
     </tr>
   );
