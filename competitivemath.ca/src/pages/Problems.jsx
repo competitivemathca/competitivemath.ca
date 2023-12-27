@@ -8,6 +8,8 @@ import { examplePastContests } from "./Contests";
 import { tags } from "../public/PublicData";
 import RangeSlider from "../Components/SearchFilters/RangeSlider";
 import Heading from "../Components/Heading";
+import DateInput from "../Components/SearchFilters/DateInput";
+import DateRangePicker from "../Components/SearchFilters/DateRangePicker";
 
 export default function Problems() {
   const testTags1 = [
@@ -21,30 +23,32 @@ export default function Problems() {
   ];
 
   const exampleProblem1 = {
-    problemID: "Q354A",
-    problemName: "Perimeter of a Cat's Head",
+    id: "Q354A",
+    name: "Perimeter of a Cat's Head",
     tags: testTags1,
     competitiveRating: 4,
     completedSubmissons: 136,
   };
 
   const exampleProblem2 = {
-    problemID: "MCSM3",
-    problemName: "Special Pythagorean Triplet",
+    id: "MCSM3",
+    name: "Special Pythagorean Triplet",
     tags: testTags2,
     competitiveRating: 2,
     completedSubmissons: 434,
   };
 
   const exampleProblem3 = {
-    problemID: "IDKXD1",
-    problemName: "Problem",
+    id: "IDKXD1",
+    name: "Problem",
     tags: testTags1,
     competitiveRating: 1,
     completedSubmissons: 23,
   };
 
   const problems = [exampleProblem1, exampleProblem2, exampleProblem3];
+
+  const problemNames = problems.map(problem => problem.name);
 
   const heading = (
     <tr>
@@ -69,8 +73,8 @@ export default function Problems() {
   const content = problems.map((problem, index) => (
     <ProblemElement
       key={index}
-      problemID={problem.problemID}
-      problemName={problem.problemName}
+      problemID={problem.id}
+      problemName={problem.name}
       tags={problem.tags}
       competitiveRating={problem.competitiveRating}
       completedSubmissions={problem.completedSubmissons}
@@ -86,7 +90,7 @@ export default function Problems() {
           <SearchBar hintText="Enter problem name..."/>
           <Dropdown
             label="Origin (Contest Name)"
-            options={examplePastContests}
+            options={problemNames}
           />
           <Dropdown
             label="Tags"
