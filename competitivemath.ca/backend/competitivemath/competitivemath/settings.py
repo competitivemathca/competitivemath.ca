@@ -117,7 +117,6 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'bndarw2006@gmail.com'
 EMAIL_HOST_PASSWORD = 'grosqszbgmyxjtiw'
-# EMAIL_HOST_PASSWORD = '1<3CR1SPYanch0v13s'
 EMAIL_USE_TLS = True
 
 

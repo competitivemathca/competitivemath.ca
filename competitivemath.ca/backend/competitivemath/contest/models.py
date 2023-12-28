@@ -62,6 +62,9 @@ class Contest(models.Model):
     # Contest must be public to be rated
     rated = models.BooleanField(default=False)
     
+    # Club that owns the contest
+    owner_club = models.ForeignKey('club.Club', blank=False)
+    
     # Clubs that authored the contest
     author_clubs = models.ManyToManyField('club.Club', blank=False)
     
@@ -201,17 +204,17 @@ class Contestant(models.Model):
     score = models.IntegerField(default=0)
     
     # The answer the Contestant gave to each Problem in the Contest
-    contest_problem_answers = models.ManyToManyField('problem.Problem', blank=True, through='ContestProblemAnswer')
+    contest_problem_answers = models.ManyToManyField('problem.Problem', blank=True, through='InContestSubmission')
     
     
     
-# A Contestant's answer to a Contest Problem
-class ContestProblemAnswer(models.Model):
+# A Contestant's submission to a Contest Problem
+class InContestSubmission(models.Model):
     
-    # Contestant this ContestProblemAnswer is associated with (i.e. which contestant submitted this answer)
+    # Contestant this InContestSubmission is associated with (i.e. which contestant submitted this answer)
     contestant = models.ForeignKey('contest.Contestant', blank=False, related_name='contest_problem_answers')
 
-    # The Contest Problem that this ContestProblemAnswer belongs to
+    # The Contest Problem that this InContestSubmission belongs to
     problem = models.ForeignKey('problem.Problem', blank=False, related_name='contest_problem_answers')
     
     # Numerical answer (if Problem.solution_type == 'NU')
@@ -225,18 +228,18 @@ class ContestProblemAnswer(models.Model):
     TXT_solution = models.TextField(blank=True)
     
     # related_name doc:
-    # ContestProblemAnswer.IMG_solution.all() returns QuerySet of ImageSolution objects
-    # ContestProblemAnswer.IMG_solution.all().order_by('created_at') returns
+    # InContestSubmission.IMG_solution.all() returns QuerySet of ImageSolution objects
+    # InContestSubmission.IMG_solution.all().order_by('created_at') returns
     
     
 
-# An ImageSolution for one of the ContestProblemAnswer by the Contestant
+# An ImageSolution for one of the InContestSubmission by the Contestant
 
 # THIS ENTIRE CLASS IS FUCKED, IM DEALING WITH IMAGE SOLUTIONS LATER
 class ImageSolution(models.Model):
     
-    # Associated ContestProblemAnswer
-    contest_problem_answer = models.ForeignKey('contest.ContestProblemAnswer', blank=False, related_name='IMG_solution')
+    # Associated InContestSubmission
+    contest_problem_answer = models.ForeignKey('contest.InContestSubmission', blank=False, related_name='IMG_solution')
     
     # Date and time this object was created
     

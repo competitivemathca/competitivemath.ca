@@ -19,7 +19,9 @@ class Problem(models.Model):
     
     text = models.TextField(blank=True)
     
-    answer = models.IntegerField(blank=True)
+    NU_answer = models.IntegerField(blank=True)
+    
+    
     
     contest = models.ForeignKey('contest.Contest', blank=False, related_name='contest_problems')
     

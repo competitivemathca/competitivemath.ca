@@ -19,6 +19,9 @@ class Club(models.Model):
     # Whether Club is open to anyone to join, or requires exec+ to accept invite
     public = models.BooleanField(default=True)
     
+    # Ranking amongst all clubs
+    ranking = models.IntegerField(blank=True)
+    
     
     # ---------- CLUB ROLES ---------- #
     # * Each User can only have one role in a club

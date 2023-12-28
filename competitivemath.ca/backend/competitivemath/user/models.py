@@ -101,6 +101,9 @@ class User(AbstractBaseUser, PermissionsMixin):
     following = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True, related_name='followers')
     
     
+    # User's ranking amongst all Users in the website
+    ranking = models.IntegerField(blank=True)
+    
     # Specifies whether this User is currently active or not
     #   True -> User can log into system without restrictions
     #   False -> User has be deactivated or suspended, unable to log in and access system
