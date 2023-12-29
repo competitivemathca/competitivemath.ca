@@ -56,8 +56,9 @@ class Contest(models.Model):
     # Name of contest
     contest_name = models.CharField(max_length=TITLE_MAX_LEN, blank=False, default='')
     
-    # Whether the contest is available to the public
-    public = models.BooleanField(default=True)
+    # # Whether the contest is available to the public
+    # # IMPLEMENT PRIVATE CONTESTS LATER
+    # public = models.BooleanField(default=True)
     
     # Contest must be public to be rated
     rated = models.BooleanField(default=False)
@@ -65,22 +66,27 @@ class Contest(models.Model):
     # Club that owns the contest
     owner_club = models.ForeignKey('club.Club', blank=False)
     
-    # Clubs that authored the contest
-    author_clubs = models.ManyToManyField('club.Club', blank=False)
+    # # Clubs that authored the contest
+    # author_clubs = models.ManyToManyField('club.Club', blank=False)
     
     # Coordinators for contest
+    # Owner of club should be able to manually add or delete contest coordinators
     contest_coordinators = models.ManyToManyField('user.User', blank=True)
     
     # Should just be all distinct authors across all Problems in Contest
+    # There should be a button to auto generated, based on the users listed as authors for each individual problem
+    # Owner of club should be able to manually add or delete authors
     contest_authors = models.ManyToManyField('user.User', blank=True)
     
     # Should just be all distinct testers across all Problems in Contest
+    # Owner of club should be able to manually add or delete testers
     contest_testers = models.ManyToManyField('user.User', blank=True)
     
-    # The clubs competing in the contest
-    # Only relevant for "public = False" contests
-    #   If so, must contain minimum of one participating club
-    participating_clubs = models.ManyToManyField('club.Club', blank=True)
+    # IMPLEMENT PRIVATE CONTESTS LATER
+    # # The clubs competing in the contest
+    # # Only relevant for "public = False" contests
+    # #   If so, must contain minimum of one participating club
+    # participating_clubs = models.ManyToManyField('club.Club', blank=True)
     
     # Date and time in which contest becomes live
     contest_live_start_date_time = models.DateTimeField(blank=True)
@@ -105,11 +111,12 @@ class Contest(models.Model):
     # Rules for contest
     contest_rules = models.TextField(blank=True)
     
-    # Contest contains at least one Problem with "solution_type = SolutionType.SHOW_WORK"
-    contains_show_work_problem = models.BooleanField(default=False)
+    # IMPLEMENT SHOW WORK PROBLEMS LATER
+    # # Contest contains at least one Problem with "solution_type = SolutionType.SHOW_WORK"
+    # contains_show_work_problem = models.BooleanField(default=False)
 
     # Whether contest is publishable or not
-    # I.e., whether the values for all attributes above are valid
+    # I.e., whether the values for all attributes above are valid, and whether all Problems are publishable
     publishable = models.BooleanField(default=False)
     # ---------- DRAFT CONTEST SETTINGS ---------- #
     
@@ -117,6 +124,7 @@ class Contest(models.Model):
     
     # ---------- PRE APPROVAL CONTEST SETTINGS ---------- #
     # Whether contest is approved for being published by website admin
+    # Once approved, publishes contest (not necessarily live yet, but shows up as upcoming contests)
     approved = models.BooleanField(default=False)
     # ---------- PRE APPROVAL CONTEST SETTINGS ---------- #
     
@@ -132,33 +140,24 @@ class Contest(models.Model):
     contestants = models.ManyToManyField('user.User', blank=True, through='Contestant')
 
     # Live standings of contestants
-    
-    
-    
-    # I WANNA MAKE ARRAY OF USER OBJECTS AND SORT IT FOR LIKE STANDINGS AND STUFF BUT IDK IF THIS 
-    # IS CORRECT WAY TO DO IT
-    
-    # ALSO WOULD I MAKE ANOTHER CLASS "CONTESTANT" OR SMTH TO STORE REFERENCE TO USER OBJECT AS WELL
-    # AS THEIR SCORE?
-    
-    
-    live_standings = models.ManyToManyField('user.User', blank=True)
+    live_standings = models.ManyToManyField('user.User', blank=True, through='Contestant')
     # ---------- LIVE CONTEST SETTINGS ---------- #
     
     
     
     # ---------- GRADING CONTEST SETTINGS ---------- #
+    # ONLY IMPLEMENT NUMERICAL SOLUTION PROBLEMS FIRST
     # Tentative standings for contestants
     #   I.e. Temporary standings while full answer/proof solutions are being graded
     #       If there are none, live standings should be directly copied to final standings
-    tentative_standings = models.ManyToManyField('user.User', blank=True)
+    # tentative_standings = models.ManyToManyField('user.User', blank=True)
     # ---------- GRADING CONTEST SETTINGS ---------- #
     
     
     
     # ---------- FINISHED CONTEST SETTINGS ---------- #
     # Final standings for contestants
-    final_standings = models.ManyToManyField('user.User', blank=True)
+    final_standings = models.ManyToManyField('user.User', blank=True, through='Contestant')
     # ---------- FINISHED CONTEST SETTINGS ---------- #
     
     
@@ -180,8 +179,9 @@ class Contest(models.Model):
         # Contest is live, users can compete in the contest, live standings displayed
         LIVE = "LI"
         
+        # IMPLEMENT SHOW WORK CONTESTS LATER
         # Contest is no longer live, and user's solutions are being graded, tentative standings displayed
-        GRADING = "GR"
+        # GRADING = "GR"
         
         # Contest is completely finished, final standings displayed
         FINISHED = "FI"
@@ -201,10 +201,11 @@ class Contestant(models.Model):
     contest = models.ForeignKey('contest.Contest', blank=False, related_name='contestant_instances')
     
     # Total score this Contestant received in the contest
+    # Should be updated once they are done the contest
     score = models.IntegerField(default=0)
     
     # The answer the Contestant gave to each Problem in the Contest
-    contest_problem_answers = models.ManyToManyField('problem.Problem', blank=True, through='InContestSubmission')
+    contest_problem_solutions = models.ManyToManyField('problem.Problem', blank=True, through='InContestSubmission')
     
     
     
@@ -212,20 +213,21 @@ class Contestant(models.Model):
 class InContestSubmission(models.Model):
     
     # Contestant this InContestSubmission is associated with (i.e. which contestant submitted this answer)
-    contestant = models.ForeignKey('contest.Contestant', blank=False, related_name='contest_problem_answers')
+    contestant = models.ForeignKey('contest.Contestant', blank=False, related_name='in_contest_submissions')
 
     # The Contest Problem that this InContestSubmission belongs to
-    problem = models.ForeignKey('problem.Problem', blank=False, related_name='contest_problem_answers')
+    problem = models.ForeignKey('problem.Problem', blank=False, related_name='in_contest_submissions')
     
     # Numerical answer (if Problem.solution_type == 'NU')
-    NU_answer = models.IntegerField(blank=True)
+    NU_solution = models.IntegerField(blank=True)
     
-    # Multiple choice answer (if Problem.solution_type == 'MC')
-    MC_answer = models.CharField(blank=True)
+    # IMPLEMENT MULTIPLE CHOICE OR TEXT OR IMAGE SOLUTIONS LATER
+    # # Multiple choice answer (if Problem.solution_type == 'MC')
+    # MC_answer = models.CharField(blank=True)
     
-    # Text solution and/or image solution (if Problem.solution_type == 'SW')
-    # I.e. For show work problems, user can submit both text or images to support their solution
-    TXT_solution = models.TextField(blank=True)
+    # # Text solution and/or image solution (if Problem.solution_type == 'SW')
+    # # I.e. For show work problems, user can submit both text or images to support their solution
+    # TXT_solution = models.TextField(blank=True)
     
     # related_name doc:
     # InContestSubmission.IMG_solution.all() returns QuerySet of ImageSolution objects
@@ -236,24 +238,24 @@ class InContestSubmission(models.Model):
 # An ImageSolution for one of the InContestSubmission by the Contestant
 
 # THIS ENTIRE CLASS IS FUCKED, IM DEALING WITH IMAGE SOLUTIONS LATER
-class ImageSolution(models.Model):
+# class ImageSolution(models.Model):
     
-    # Associated InContestSubmission
-    contest_problem_answer = models.ForeignKey('contest.InContestSubmission', blank=False, related_name='IMG_solution')
+#     # Associated InContestSubmission
+#     contest_problem_answer = models.ForeignKey('contest.InContestSubmission', blank=False, related_name='IMG_solution')
     
-    # Date and time this object was created
+#     # Date and time this object was created
     
-    # THIS DOESN'T WORK
-    # FRONTEND NEEDS TO MAKE MULTIPLE SECTIONS TO UPLOAD SOLUTION PAGE 1, 2, 3, ...
-    # THIS IS THE DATE AND TIME OBJECT IS CREATED, BUT I ASSUME ALL SOLUTION PAGES UPLOADED AT SAME TIME
-    # TECHNICALLY COULD WORK, BUT TOO RISKY
-    #   ORDER DELTAS REPRESENTING IMAGES PLACED IN JSON BASED ON WHICH USER UPLOADED FIRST
-    #   THAT ORDER IS MAINTAINED WHEN SENDING JSON TO BACKEND
-    #   ITERATE THROUGH DELTAS IN ORDER THEY WERE LISTED IN JSON
-    #   CREATE INSTANCE OF THIS OBJECT IN THAT ORDER, SO STILL FIFO
-    #   BUT VERY CRUDE AND RISKY
-    date_time_uploaded = models.DateTimeField(auto_now_add=True)
+#     # THIS DOESN'T WORK
+#     # FRONTEND NEEDS TO MAKE MULTIPLE SECTIONS TO UPLOAD SOLUTION PAGE 1, 2, 3, ...
+#     # THIS IS THE DATE AND TIME OBJECT IS CREATED, BUT I ASSUME ALL SOLUTION PAGES UPLOADED AT SAME TIME
+#     # TECHNICALLY COULD WORK, BUT TOO RISKY
+#     #   ORDER DELTAS REPRESENTING IMAGES PLACED IN JSON BASED ON WHICH USER UPLOADED FIRST
+#     #   THAT ORDER IS MAINTAINED WHEN SENDING JSON TO BACKEND
+#     #   ITERATE THROUGH DELTAS IN ORDER THEY WERE LISTED IN JSON
+#     #   CREATE INSTANCE OF THIS OBJECT IN THAT ORDER, SO STILL FIFO
+#     #   BUT VERY CRUDE AND RISKY
+#     date_time_uploaded = models.DateTimeField(auto_now_add=True)
     
-    # ASSUMES IMAGES STORED IN DATABASE
-    # FOR CLOUD STORAGE, SHOULD STORE URL TO THE IMAGE STORED IN CLOUD STORAGE INSTEAD
-    image = models.ImageField(blank=True)
+#     # ASSUMES IMAGES STORED IN DATABASE
+#     # FOR CLOUD STORAGE, SHOULD STORE URL TO THE IMAGE STORED IN CLOUD STORAGE INSTEAD
+#     image = models.ImageField(blank=True)

@@ -2,7 +2,7 @@ from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
 from .models import User
 
-# Create your views here.
+# Create your views here
 def get_user_by_username(username:str):
     user = get_object_or_404(User, username=username)
     

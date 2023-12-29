@@ -20,7 +20,7 @@ class Club(models.Model):
     public = models.BooleanField(default=True)
     
     # Ranking amongst all clubs
-    ranking = models.IntegerField(blank=True)
+    # ranking = models.IntegerField(blank=True)
     
     
     # ---------- CLUB ROLES ---------- #
@@ -28,15 +28,20 @@ class Club(models.Model):
     
     # Owner of this club
     # Many Club to one User relationship
+    # Permissions:
+    #   - Create and edit club contests (assuming club is verified)
+    #   - Change club settings
+    #   - Accept member join requests (assuming it is non-public club)
     club_owner = models.ForeignKey('user.User', blank=False, related_name='owner_of_these_clubs')
     
-    # Admins of this club
-    # Many Club to many User relationship
-    club_admins = models.ManyToManyField('user.User', blank=True, related_name='admin_of_these_clubs')
+    # IMPLEMENT INTERMEDIATE ROLES LATER
+    # # Admins of this club
+    # # Many Club to many User relationship
+    # club_admins = models.ManyToManyField('user.User', blank=True, related_name='admin_of_these_clubs')
     
-    # Executive of this club
-    # Many Club to many User relationship
-    club_execs = models.ManyToManyField('user.User', blank=True, related_name='exec_of_these_clubs')
+    # # Executive of this club
+    # # Many Club to many User relationship
+    # club_execs = models.ManyToManyField('user.User', blank=True, related_name='exec_of_these_clubs')
     
     # Members of this club
     # Many Club to many User relationship
@@ -45,4 +50,5 @@ class Club(models.Model):
     
     
     # Date and time club was founded
+    # (Auto generated)
     date_time_founded = models.DateTimeField(default=timezone.now)
