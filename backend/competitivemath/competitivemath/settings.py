@@ -12,7 +12,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
-import secret
+
+from . import cm_secrets
 
 # import django
 # django.setup()
@@ -26,7 +27,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = secret.SECRET_KEY
+SECRET_KEY = cm_secrets.SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -105,10 +106,10 @@ DATABASES = {
         # Set database to Postgresql
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'competitivemath.ca',
-        'USER': secret.PG_USER,
-        'PASSWORD': secret.PG_PASSWORD,
-        'HOST': secret.PG_HOST,
-        'PORT': secret.PG_PORT
+        'USER': cm_secrets.PG_USER,
+        'PASSWORD': cm_secrets.PG_PASSWORD,
+        'HOST': cm_secrets.PG_HOST,
+        'PORT': cm_secrets.PG_PORT
     }
 }
 
@@ -116,8 +117,8 @@ DATABASES = {
 EMAIL_BACKEND= 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = secret.EMAIL_HOST_USER
-EMAIL_HOST_PASSWORD = secret.EMAIL_HOST_PASSWORD
+EMAIL_HOST_USER = cm_secrets.EMAIL_HOST_USER
+EMAIL_HOST_PASSWORD = cm_secrets.EMAIL_HOST_PASSWORD
 EMAIL_USE_TLS = True
 
 

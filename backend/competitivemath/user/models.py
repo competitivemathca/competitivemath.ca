@@ -75,8 +75,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     
     # First and last name for User
     #   Only mandatory for "superusers"
-    first_name = models.CharField(max_length=255, blank=True, default='')
-    last_name = models.CharField(max_length=255, blank=True, default='')
+    # first_name = models.CharField(max_length=255, blank=True, default='')
+    # last_name = models.CharField(max_length=255, blank=True, default='')
     
     # Profile picture for User
     #   Database only stores path to image
@@ -100,6 +100,9 @@ class User(AbstractBaseUser, PermissionsMixin):
     #   'followers' is the related_name to access a User's followers
     following = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True, related_name='followers')
     
+    
+    # User's ranking amongst all Users in the website
+    ranking = models.IntegerField(blank=True)
     
     # Specifies whether this User is currently active or not
     #   True -> User can log into system without restrictions
@@ -193,8 +196,8 @@ class User(AbstractBaseUser, PermissionsMixin):
         user_profile_dict = {
             'username':self.username,
             'email':self.email,
-            'first_name':self.first_name,
-            'last_name':self.last_name,
+            # 'first_name':self.first_name,
+            # 'last_name':self.last_name,
             'profile_picture':self.profile_picture,
             'description':self.description,
             'following':following,
