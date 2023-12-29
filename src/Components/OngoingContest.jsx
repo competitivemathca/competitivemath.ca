@@ -4,8 +4,9 @@ import {
     shortDateFormat,
     dateFormat,
 } from "../public/TimeModules.jsx";
+import { Link } from "react-router-dom";
 
-export default function OngoingContest({name, author, startTime, endTime, window, participants}) {
+export default function OngoingContest({id, name, author, startTime, endTime, window, participants}) {
     return (
         <div className="w-full bg-blue-200 border-[2px] border-solid border-gray-400 
                         p-7 rounded-2xl overflow-hidden shadow-xl mb-7
@@ -13,9 +14,11 @@ export default function OngoingContest({name, author, startTime, endTime, window
             {/*Left side*/}
             <div>
                 <div>
-                    <h1 className="text-xl text-blue-900 mb-3">
-                        {name} - <Countdown endTime={endTime}/> left
-                    </h1>
+                    <Link to={`/contest/${id}`}>
+                        <h1 className="text-xl text-blue-900 mb-3">
+                            {name} - <Countdown endTime={endTime}/> left
+                        </h1>
+                    </Link>
                 </div>
 
                 <div> <b>Start:</b> {dateFormat.format(startTime)} </div>

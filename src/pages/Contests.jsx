@@ -1,7 +1,7 @@
 import Heading from "../Components/Heading";
 import OngoingContest from "../Components/OngoingContest";
 import ContentPanel from "../Components/ContentPanel";
-import Contest from "../Components/Contest";
+import SideContestElement from "../Components/SideContestElement";
 import PastContestElement from "../Components/PastContestElement";
 import TablePanel from "../Components/TablePanel";
 import SearchBar from "../Components/SearchFilters/SearchBar";
@@ -10,6 +10,7 @@ import RangeSlider from "../Components/SearchFilters/RangeSlider";
 import DateRangePicker from "../Components/SearchFilters/DateRangePicker";
 
 const testOngoingContest1 = {
+  id: 2,
   name: "Weekend Challenge 3-Hour Contest",
   author: "Bur Oak Secondary School",
   startTime: new Date(Date.UTC(2024, 0, 1, 0, 0, 0)),
@@ -19,6 +20,7 @@ const testOngoingContest1 = {
 };
 
 const testUpcomingContest1 = {
+  id: 3,
   name: "Mock CSMC 2-Hour 9-Question Contest",
   author: "Bur Oak Secondary School",
   startTime: new Date(Date.UTC(2024, 0, 1, 0, 0, 0)),
@@ -53,6 +55,7 @@ const tableHeading = (
 
 export const examplePastContests = [
   {
+    id: 1,
     date: new Date(2023, 11, 22, 17, 55, 0),
     name: "Weekend Challenge 3-Hour Contest",
     authors: ["AP MATH", "Andrew Deng"],
@@ -63,6 +66,7 @@ export const examplePastContests = [
 
 const content = examplePastContests.map((contest, index) => (
   <PastContestElement
+    id={contest.id}
     key={index}
     index={index}
     date={contest.date}
@@ -88,6 +92,7 @@ export default function Contests() {
           {ongoingContests.length > 0 ? (
             ongoingContests.map((contest, index) => (
               <OngoingContest
+                id={contest.id}
                 key={index}
                 name={contest.name}
                 author={contest.author}
@@ -107,7 +112,8 @@ export default function Contests() {
           <ContentPanel title="Scheduled Contests">
             <ul>
               {upcomingContests.map((contest, index) => (
-                <Contest
+                <SideContestElement
+                  id={contest.id}
                   key={index}
                   name={contest.name}
                   startTime={contest.startTime}
