@@ -80,11 +80,12 @@ The localhost:8000 team"
 - Note the "uid" and "token" can be found in the url of the confirmation link emailed to the user
 - If successful, empty JSON is returned
 - If unsuccessful, this JSON is returned:
-  {
-  "token": [
-  "Invalid token for given user."
-  ]
-  }
+
+```json
+{
+  "token": ["Invalid token for given user."]
+}
+```
 
 ## Login to user account (i.e. get JWT token):
 
