@@ -1,7 +1,21 @@
 import FormPanel from "./FormPanel";
 
 export default function LoginPanel() {
-  const onLogin = () => {};
+  const [inputs, setInputs] = useState({
+    username: "",
+    password: "",
+  });
+
+  const onLogin = (e) => {
+    e.preventDefault();
+    console.log("HI!");
+  };
+
+  const handleChange = (e) => {
+    const key = e.target.id;
+    const value = e.target.value;
+    setInputs((previousInputs) => ({ ...previousInputs, [key]: value }));
+  };
   return (
     <FormPanel title="Login" onSubmit={onLogin}>
       <label htmlFor="email-username" className="font-bold">
@@ -11,15 +25,19 @@ export default function LoginPanel() {
         type="text"
         id="email-username"
         placeholder="Username or Email"
+        value={inputs.username || ""}
+        onChange={handleChange}
         className="border-2 border-gray-300 rounded-md p-1"
       />
       <label htmlFor="password" className="font-bold">
-        Password 
+        Password
       </label>
       <input
         type="passsword"
         id="password"
         placeholder="Password"
+        value={inputs.password || ""}
+        onChange={handleChange}
         className="border-2 border-gray-300 rounded-md p-1"
       />
       <button

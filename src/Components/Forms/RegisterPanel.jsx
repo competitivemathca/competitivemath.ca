@@ -10,9 +10,9 @@ export default function RegisterPanel() {
   });
 
   const handleChange = (e) => {
-    const name = e.target.id;
+    const key = e.target.id;
     const value = e.target.value;
-    setInputs((previousInputs) => ({ ...previousInputs, [name]: value }));
+    setInputs((previousInputs) => ({ ...previousInputs, [key]: value }));
   };
 
   const onRegister = (e) => {
