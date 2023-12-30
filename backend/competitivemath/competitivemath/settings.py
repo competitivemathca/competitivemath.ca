@@ -66,12 +66,12 @@ AUTH_USER_MODEL = 'user.User'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',  # Make sure this is before AuthenticationMiddleware
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'competitivemath.urls'
@@ -223,14 +223,20 @@ DJOSER = {
         # 'user_create': 'authentication.serializers.UserCreateSerializer',
         # 'user': 'authentication.serializers.UserCreateSerializer',
         # 'user_delete': 'djoser.serializers.UserDeleteSerializer',
+        'token_create': 'user.serializers.CustomTokenCreateSerializer',
         'user_create': 'authentication.serializers.UserCreateSerializer',
         'user': 'authentication.serializers.UserCreateSerializer',
         'user_delete': 'djoser.serializers.UserDeleteSerializer',
     }
 }
 
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:5173",  # Your React app's address
+# ]
+
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",  # Your React app's address
+    "http://localhost:5173",
+    # Add any other trusted origins if needed
 ]
 
 CORS_ALLOW_METHODS = [

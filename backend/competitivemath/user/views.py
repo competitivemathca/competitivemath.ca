@@ -9,11 +9,11 @@ from django.shortcuts import render
 # from rest_framework.permissions import IsAuthenticated
 
 # Create your views here
-@csrf_exempt
+# @csrf_exempt
 def get_user_by_id(request):
     return None
 
-@csrf_exempt
+# @csrf_exempt
 # @authentication_classes([CsrfExemptSessionAuthentication, TokenAuthentication])
 # @permission_classes([IsAuthenticated])
 def get_user_by_username(request):
