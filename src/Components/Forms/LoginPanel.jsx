@@ -22,6 +22,12 @@ export default function LoginPanel() {
           Register
         </a>
       </p>
+      <p className="text-center">
+        Forgot your password?{" "}
+        <a href="#" className="text-blue-800 hover:underline">
+          Reset Password 
+        </a>
+      </p>
     </FormPanel>
   );
 }
