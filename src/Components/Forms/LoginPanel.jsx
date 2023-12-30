@@ -1,4 +1,5 @@
 import FormPanel from "./FormPanel";
+import {useState} from "react";
 
 export default function LoginPanel() {
   const [inputs, setInputs] = useState({
@@ -8,7 +9,14 @@ export default function LoginPanel() {
 
   const onLogin = (e) => {
     e.preventDefault();
-    console.log("HI!");
+    
+    fetch("http://localhost:8000/auth/jwt/create/", {
+      method: "POST",
+      body: JSON.stringify(inputs),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    });
   };
 
   const handleChange = (e) => {
@@ -23,7 +31,7 @@ export default function LoginPanel() {
       </label>
       <input
         type="text"
-        id="email-username"
+        id="username"
         placeholder="Username or Email"
         value={inputs.username || ""}
         onChange={handleChange}
@@ -33,7 +41,7 @@ export default function LoginPanel() {
         Password
       </label>
       <input
-        type="passsword"
+        type="password"
         id="password"
         placeholder="Password"
         value={inputs.password || ""}
