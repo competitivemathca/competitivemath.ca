@@ -29,4 +29,4 @@ urlpatterns = [
 urlpatterns += [re_path(r'^.*', TemplateView.as_view(template_name = 'index.html'))]
 
 # Route to access a user profile
-urlpatterns += [path('profile/', include('user.urls'))]
+urlpatterns += [path('user/', include('user.urls'))]

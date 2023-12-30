@@ -102,7 +102,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     
     
     # User's ranking amongst all Users in the website
-    ranking = models.IntegerField(blank=True)
+    ranking = models.IntegerField(blank=True, default=-1)
     
     # Specifies whether this User is currently active or not
     #   True -> User can log into system without restrictions
@@ -176,7 +176,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     
     # Specifies list of fields that must be provided when creating new superuser via "python manage.py createsuperuser"
     # REQUIRED_FIELDS = ['email', 'first_name', 'last_name']
-    REQUIRED_FIELDS = ['email', 'first_name', 'last_name']
+    # REQUIRED_FIELDS = ['email', 'first_name', 'last_name']
+    REQUIRED_FIELDS = ['email']
     
     class Meta:
         verbose_name = 'User'
