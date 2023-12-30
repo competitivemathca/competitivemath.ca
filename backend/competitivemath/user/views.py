@@ -42,19 +42,3 @@ def get_user_by_username(response):
     user_profile_dict = user.get_user_profile_as_dict()
     
     return JsonResponse(user_profile_dict, content_type="application/json")
-
-# views.py
-from djoser.views import LoginView
-from rest_framework.response import Response
-
-class CustomLoginView(LoginView):
-    def post(self, request, *args, **kwargs):
-        # Call the parent post method to perform the login
-        response = super().post(request, *args, **kwargs)
-
-        # Add CSRF token to the response data
-        csrf_token = request.COOKIES.get('csrftoken')
-        if csrf_token:
-            response.data['csrf_token'] = csrf_token
-
-        return response
