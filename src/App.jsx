@@ -8,6 +8,7 @@ import Profile from "./pages/Profile";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import { Route, Routes } from "react-router-dom";
+import Contest from "./pages/Contest";
 
 const loggedIn = false;
 
@@ -20,6 +21,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/problems" element={<Problems />} />
           <Route path="/contests" element={<Contests />} />
+          <Route path="/contest/:id" element={<Contest />} />
           <Route path="/community" element={<Community />} />
           <Route path="/about" element={<About />} />
           <Route path="/profile" element={loggedIn ? <Profile /> : <Login />} />

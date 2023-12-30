@@ -35,7 +35,9 @@ export const interpretTime = (time) => {
     if (hours > 12) return zeroify(hours - 12) + ":" + zeroify(mins) + " PM";
     else if (hours == 0) return "12:" + zeroify(mins) + " AM";
     else return zeroify(hours) + ":" + zeroify(mins) + " AM";
-}; export const interpretCountdownTime = (time) => {
+}; 
+
+export const interpretCountdownTime = (time) => {
     const days = Math.floor(time / (1000 * 60 * 60 * 24));
     const hours =
         days * 24 + Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));

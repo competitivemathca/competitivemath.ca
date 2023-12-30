@@ -7,9 +7,10 @@ import {
 
 import { getCurrentTimeEST } from "../public/TimeModules.jsx";
 
-import Countdown from "./Countdown";
+import Countdown from "./Countdown.jsx";
+import { Link } from "react-router-dom";
 
-export default function Contest({ name, startTime, endTime, author}) {
+export default function SideContestElement({ id, name, startTime, endTime, author}) {
 
     //Check if the contest is ongoing
     var ongoing = false;
@@ -21,9 +22,11 @@ export default function Contest({ name, startTime, endTime, author}) {
             {/*Heading*/}
             {ongoing ? (
                 <>
-                    <h2>
-                        <span className="text-red-800">ONGOING</span> - {name}
-                    </h2>
+                    <Link to={`/contest/${id}`}>
+                        <h2>
+                            <span className="text-red-800">ONGOING</span> - {name}
+                        </h2>
+                    </Link>
                     <div className="text-red-800 font-bold text-base my-2">
                             Ends in <Countdown endTime={endTime}/>
                     </div>
@@ -52,7 +55,7 @@ export default function Contest({ name, startTime, endTime, author}) {
     );
 }
 
-Contest.propTypes = {
+SideContestElement.propTypes = {
     status: PropTypes.string,
     name: PropTypes.string,
     startTime: PropTypes.objectOf(Date),

@@ -1,6 +1,6 @@
 import ContentPanel from "../Components/ContentPanel";
 import Announcement from "../Components/Announcement";
-import Contest from "../Components/Contest";
+import SideContestElement from "../Components/SideContestElement";
 import Submission from "../Components/Submission";
 
 export default function Home() {
@@ -12,8 +12,8 @@ export default function Home() {
           className="flex flex-col overflow-auto p-5"
         >
           <ul>
-            <Contest
-              status="ONGOING"
+            <SideContestElement
+              id={4}
               name="Weekend Challenge 3-Hour Contest"
               startTime={
                 new Date(Date.UTC(2023, 9, 22, 17, 55, 0))
@@ -21,8 +21,8 @@ export default function Home() {
               endTime={new Date(Date.UTC(2023, 9, 25, 18, 55, 0))}
               author="Bur Oak Secondary School"
             />
-            <Contest
-              status="UPCOMING"
+            <SideContestElement
+              id={5}
               name="Mock CSMC 2-Hour 9-Question Contest"
               startTime={new Date(Date.UTC(2024, 0, 1, 0, 0, 0))}
               endTime={new Date(Date.UTC(2024, 0, 2, 23, 59, 59))}
