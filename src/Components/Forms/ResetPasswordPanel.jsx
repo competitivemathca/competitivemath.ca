@@ -1,44 +1,4 @@
-import FormPanel from "./FormPanel";
-import { useState } from "react";
-
-export default function LoginPanel() {
-  const EMAIL_URL = "email.com";
-  const USERNAME_URL = "username.com";
-
-  const [inputs, setInputs] = useState({
-    username_email: "",
-    password: "",
-  });
-
-  const isEmail = (email) => {
-    return email.match(
-      /^[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*$/gm,
-    );
-  };
-
-  const onLogin = (e) => {
-    e.preventDefault();
-
-    console.log(isEmail(inputs.username_email));
-
-    const url = isEmail(inputs.username_email) ? EMAIL_URL : USERNAME_URL;
-
-    console.log(url);
-
-    // fetch(url, {
-    //   method: "POST",
-    //   body: JSON.stringify(inputs),
-    //   headers: {
-    //     "Content-type": "application/json; charset=UTF-8",
-    //   },
-    // });
-  };
-
-  const handleChange = (e) => {
-    const key = e.target.id;
-    const value = e.target.value;
-    setInputs((previousInputs) => ({ ...previousInputs, [key]: value }));
-  };
+export default function ResetPasswordPanel() {
   return (
     <FormPanel title="Login" onSubmit={onLogin}>
       <label htmlFor="email-username" className="font-bold">

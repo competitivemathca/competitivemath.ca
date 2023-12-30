@@ -36,7 +36,7 @@ export default function RegisterPanel() {
       </label>
       <input
         title="Email"
-        type="text"
+        type="email"
         id="email"
         onChange={handleChange}
         placeholder="Email"
