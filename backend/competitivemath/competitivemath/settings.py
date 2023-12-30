@@ -71,6 +71,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'competitivemath.urls'
@@ -118,7 +119,7 @@ DATABASES = {
         'NAME': 'competitivemath.ca',
         'USER': cm_secrets.PG_USER,
         'PASSWORD': cm_secrets.PG_PASSWORD,
-        'HOST': cm_secrets.PG_HOST,
+        'HOST': "Kevin",
         'PORT': cm_secrets.PG_PORT
     }
 }
@@ -227,6 +228,19 @@ DJOSER = {
         'user_delete': 'djoser.serializers.UserDeleteSerializer',
     }
 }
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",  # Your React app's address
+]
+
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
