@@ -28,6 +28,7 @@ export default function RegisterPanel() {
       },
     });
   };
+
   return (
     <FormPanel title="Register" onSubmit={onRegister}>
       <label htmlFor="email" className="font-bold">
@@ -79,7 +80,7 @@ export default function RegisterPanel() {
         className="border-2 border-gray-300 rounded-md p-1"
       />
       <button
-        className="w-1/2 self-center bg-blue-800 text-white p-2 text-lg rounded-2xl hover:bg-blue-700"
+        className="w-1/2 my-3 self-center bg-blue-800 text-white p-2 text-lg rounded-2xl hover:bg-blue-700"
         type="submit"
       >
         Register

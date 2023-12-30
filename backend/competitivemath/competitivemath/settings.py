@@ -109,7 +109,7 @@ DATABASES = {
         'NAME': 'competitivemath.ca',
         'USER': cm_secrets.PG_USER,
         'PASSWORD': cm_secrets.PG_PASSWORD,
-        'HOST': cm_secrets.PG_HOST,
+        'HOST': "Kevin",
         'PORT': cm_secrets.PG_PORT
     }
 }
