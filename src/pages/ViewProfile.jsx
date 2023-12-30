@@ -17,7 +17,11 @@ export default function ViewProfile() {
         headers: {
           "Content-type": "application/json; charset=UTF-8",
         },
-      });
+      })
+        .then((response) => {
+          console.log(response.body);
+        })
+        .catch((error) => consle.log(error));
 
       effectRun.current = true;
     }
