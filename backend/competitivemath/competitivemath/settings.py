@@ -248,3 +248,5 @@ CORS_ALLOW_METHODS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
+SESSION_COOKIE_SECURE = False  # Set to True if using HTTPS in production

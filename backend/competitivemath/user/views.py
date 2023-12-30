@@ -16,13 +16,15 @@ def get_user_by_id(request):
 @csrf_exempt
 # @authentication_classes([CsrfExemptSessionAuthentication, TokenAuthentication])
 # @permission_classes([IsAuthenticated])
-def get_user_by_username(response):
+def get_user_by_username(request):
+    
+    # print(request.COOKIES)
     
     # Isn't POST request
-    if response.method != "POST":
+    if request.method != "POST":
         return JsonResponse({"Error":"\"get_user_by_username\" requires POST request."}, content_type="application/json")
     
-    username = response.POST.get("username")
+    username = request.POST.get("username")
     
     # No 'username' key in JSON
     if not username:
