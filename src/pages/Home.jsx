@@ -49,12 +49,12 @@ export default function Home() {
         <ContentPanel title="Important Announcements" colour="bg-blue-100">
           {/*imgSrc and pfp are image links from the database*/}
           <Announcement
-            imgSrc="https://static1.cbrimages.com/wordpress/wp-content/uploads/2021/01/Blade-Runner-2049-1.jpg"
-            username="apljc"
+            imgSrc="https://images.pexels.com/photos/1329302/pexels-photo-1329302.jpeg"
+            username="Admin"
             date={new Date(Date.UTC(2023, 5, 13, 15, 20, 0))}
             pfp="../../images/Default PFP.svg"
-            title="I can't do this anymore."
-            text="I'm serious."
+            title="Math as an art form"
+            text="I'm serious. Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat."
           />
         </ContentPanel>
       </div>
