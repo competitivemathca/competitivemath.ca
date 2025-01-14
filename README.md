@@ -16,7 +16,7 @@ Once a user has finished a contest, their **rating** will increase based on thei
 When a contest ends, all of its problems will be archived in the **Problems tab**, where users can practice outside of contests.
 
 ## How to build
-The website is hosted on a domain: [[competitivemath.ca](competitivemath.ca)](https://competitivemath.ca/) <br>
+The website is hosted on a domain: https://competitivemath.ca/ <br>
 To build it on your own device, clone this repository. Then, open a terminal and write `npm run dev`.
 
 **Project put on hold until further notice.**
