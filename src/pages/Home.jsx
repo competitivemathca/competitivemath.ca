@@ -53,8 +53,14 @@ export default function Home() {
             username="Admin"
             date={new Date(Date.UTC(2023, 5, 13, 15, 20, 0))}
             pfp="../../images/Default PFP.svg"
-            title="Math as an art form"
-            text="I'm serious. Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat."
+            title="Welcome to competitivemath.ca!"
+            text="This is a math contest hosting platform designed for high school students. 
+              If you're from a high school, feel free to create a club, or join it if it already exists!
+              While you're here, try visiting the Problems tab to see our archive of past contest questions,
+              or visit the Contests tab to see our current live or upcoming contests. If you choose to start
+              a live contest, be ready! A timer will start as soon as you click on the link.
+              
+              NOTE: This website is currently a proof-of-concept. Not all desired features will be functional."
           />
         </ContentPanel>
       </div>
