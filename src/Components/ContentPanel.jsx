@@ -4,7 +4,7 @@ export default function ContentPanel({ title, children, colour, ...props }) {
     return (
         <div
             className={
-                "flex flex-col border-[2px] border-solid border-blue-800 rounded-2xl overflow-hidden shadow-xl " +
+                "flex flex-col border-[2px] border-solid border-blue-800 rounded-xl overflow-hidden shadow-xl " +
                 colour
             }
         >
