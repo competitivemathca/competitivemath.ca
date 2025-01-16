@@ -49,7 +49,7 @@ export default function Home() {
         <ContentPanel title="Important Announcements" colour="bg-blue-100">
           {/*imgSrc and pfp are image links from the database*/}
           <Announcement
-            imgSrc="https://images.pexels.com/photos/1329302/pexels-photo-1329302.jpeg"
+            imgSrc="../../images/CM Logo Blue.ico"
             username="Admin"
             date={new Date(Date.UTC(2023, 5, 13, 15, 20, 0))}
             pfp="../../images/Default PFP.svg"
